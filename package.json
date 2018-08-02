@@ -1,0 +1,50 @@
+{
+  "private": true,
+  "repository": "git@github.com:JR93/mu-ui.git",
+  "author": "JR93 <gjr_china@163.com>",
+  "scripts": {
+    "lint": "eslint .",
+    "release": "lerna publish"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^7.0.0",
+    "@commitlint/config-conventional": "^7.0.1",
+    "cross-env": "^5.2.0",
+    "eslint": "^4.19.1",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-node": "^7.0.1",
+    "eslint-plugin-prettier": "^2.6.2",
+    "eslint-plugin-promise": "^3.8.0",
+    "eslint-plugin-standard": "^3.1.0",
+    "eslint-plugin-vue": "^4.7.1",
+    "husky": "^1.0.0-rc.13",
+    "lerna": "3.0.0-rc.0",
+    "lint-staged": "^7.2.0",
+    "prettier": "^1.14.0"
+  },
+  "peerDependencies": {
+    "vue": "^2.5.16"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "cross-env-shell commitlint -e $HUSKY_GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "*.{js,vue}": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  }
+}

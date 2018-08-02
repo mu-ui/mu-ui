@@ -1,0 +1,20 @@
+{
+  "version": "independent",
+  "command": {
+    "init": {
+      "exact": true
+    },
+    "publish": {
+      "allowBranch": "master",
+      "conventionalCommits": true,
+      "message": "chore(release): publish",
+      "ignoreChanges": [
+        "*.md",
+        "**/example/**",
+        "**/test/**"
+      ]
+    }
+  },
+  "npmClient": "yarn",
+  "useWorkspaces": true
+}
