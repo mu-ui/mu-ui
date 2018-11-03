@@ -1,35 +1,64 @@
 {
+  "name": "yym-ui",
   "private": true,
-  "repository": "git@github.com:JR93/mu-ui.git",
-  "author": "JR93 <gjr_china@163.com>",
+  "repository": "git@git.yypm.com:yym-component/yym-ui.git",
+  "author": "guojinrong@yy.com",
   "scripts": {
-    "lint": "eslint .",
-    "release": "lerna publish"
+    "commit": "git-cz",
+    "dev": "webpack-dev-server --config build/webpack.dev.js",
+    "build": "lerna run build",
+    "lint": "eslint --fix --ext .js,.vue .",
+    "release": "lerna publish --conventional-commits --registry https://npm-registry.yy.com"
   },
   "devDependencies": {
-    "@commitlint/cli": "^7.0.0",
-    "@commitlint/config-conventional": "^7.0.1",
+    "@babel/core": "^7.1.2",
+    "@babel/plugin-transform-runtime": "^7.1.0",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/runtime": "^7.1.2",
+    "@babel/runtime-corejs2": "^7.1.2",
+    "@commitlint/cli": "^7.2.1",
+    "@commitlint/config-conventional": "^7.1.2",
+    "babel-eslint": "^10.0.1",
+    "babel-loader": "^8.0.4",
+    "commitizen": "^3.0.4",
     "cross-env": "^5.2.0",
-    "eslint": "^4.19.1",
-    "eslint-config-prettier": "^2.9.0",
-    "eslint-config-standard": "^11.0.0",
-    "eslint-plugin-import": "^2.13.0",
-    "eslint-plugin-node": "^7.0.1",
-    "eslint-plugin-prettier": "^2.6.2",
-    "eslint-plugin-promise": "^3.8.0",
-    "eslint-plugin-standard": "^3.1.0",
-    "eslint-plugin-vue": "^4.7.1",
-    "husky": "^1.0.0-rc.13",
-    "lerna": "3.0.0-rc.0",
-    "lint-staged": "^7.2.0",
-    "prettier": "^1.14.0"
+    "css-loader": "^1.0.1",
+    "cssnano": "^4.1.7",
+    "cz-conventional-changelog": "^2.1.0",
+    "eslint": "^5.8.0",
+    "eslint-config-prettier": "^3.1.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-friendly-formatter": "^4.0.1",
+    "eslint-loader": "^2.1.1",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^8.0.0",
+    "eslint-plugin-prettier": "^3.0.0",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "eslint-plugin-vue": "^5.0.0-beta.3",
+    "file-loader": "^2.0.0",
+    "friendly-errors-webpack-plugin": "^1.7.0",
+    "html-webpack-plugin": "^3.2.0",
+    "husky": "^1.1.3",
+    "lerna": "^3.4.3",
+    "lint-staged": "^8.0.4",
+    "node-sass": "^4.9.4",
+    "postcss-import": "^12.0.1",
+    "postcss-loader": "^3.0.0",
+    "postcss-preset-env": "^6.3.0",
+    "postcss-pxtorem": "^4.0.1",
+    "prettier": "^1.14.3",
+    "rimraf": "^2.6.2",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "url-loader": "^1.1.2",
+    "vue-loader": "^15.4.2",
+    "vue-template-compiler": "^2.5.17",
+    "webpack": "^4.23.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.10",
+    "webpack-merge": "^4.1.4"
   },
-  "peerDependencies": {
-    "vue": "^2.5.16"
-  },
-  "workspaces": [
-    "packages/*"
-  ],
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
@@ -37,14 +66,27 @@
     }
   },
   "lint-staged": {
-    "*.{js,vue}": [
-      "eslint --fix",
-      "git add"
+    "linters": {
+      "*.{js,vue}": [
+        "yarn run lint",
+        "git add"
+      ]
+    },
+    "ignore": [
+      "**/lib/*.min.js"
     ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
   },
   "commitlint": {
     "extends": [
       "@commitlint/config-conventional"
     ]
+  },
+  "engines": {
+    "node": ">= 10.13.0"
   }
 }

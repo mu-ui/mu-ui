@@ -1,0 +1,13 @@
+{
+  "name": "@yy/yym-toast",
+  "private": false,
+  "version": "0.0.0",
+  "description": "toast vue component for yy mobile",
+  "main": "lib/index.min.js",
+  "module": "index.js",
+  "scripts": {
+    "build": "rimraf lib && webpack --config ../../build/webpack.umd.js"
+  },
+  "author": "guojinrong@yy.com",
+  "license": "MIT"
+}

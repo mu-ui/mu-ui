@@ -1,6 +1,7 @@
-node_modules
+node_modules/
+dev/
 .DS_Store
+.vscode
 *.log
-*.log.*
-packages/*/yarn.lock
-packages/*/package-lock.json
+.idea
+.changelog/
