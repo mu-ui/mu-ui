@@ -1,8 +1,8 @@
 {
-  "name": "yym-ui",
+  "name": "mu-ui",
   "private": true,
-  "repository": "git@git.yypm.com:yym-component/yym-ui.git",
-  "author": "guojinrong@yy.com",
+  "repository": "git@github.com:JR93/mu-ui.git",
+  "author": "JR93 <gjr_china@163.com>",
   "scripts": {
     "commit": "git-cz",
     "dev": "webpack-dev-server --config build/webpack.dev.js",
