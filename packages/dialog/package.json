@@ -1,0 +1,21 @@
+{
+  "name": "@mu-ui/mu-dialog",
+  "private": false,
+  "version": "0.0.0",
+  "description": "dialog vue component for vue 2.x",
+  "keywords": [
+    "dialog",
+    "vue",
+    "components"
+  ],
+  "main": "lib/index.common.js",
+  "module": "lib/index.esm.js",
+  "scripts": {
+    "build": "rimraf lib && rollup --config ../../build/rollup.component.js"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "JR93 <gjr_china@163.com>",
+  "license": "MIT"
+}
