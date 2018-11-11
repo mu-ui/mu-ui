@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import Loading from '@mu/mu-loading'
+import Loading from '@mu-ui/mu-loading'
 import IndicatorTemplate from './indicator.vue'
 
 Vue.use(Loading)
