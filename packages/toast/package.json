@@ -1,0 +1,18 @@
+{
+  "name": "@mu-ui/mu-toast",
+  "private": false,
+  "version": "0.0.0",
+  "description": "toast vue component",
+  "keywords": [
+    "toast",
+    "vue",
+    "components"
+  ],
+  "main": "lib/index.common.js",
+  "module": "lib/index.esm.js",
+  "scripts": {
+    "build": "rimraf lib && rollup --config ../../build/rollup.component.js"
+  },
+  "author": "JR93 <gjr_china@163.com>",
+  "license": "MIT"
+}
