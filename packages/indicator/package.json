@@ -18,5 +18,8 @@
   },
   "author": "JR93 <gjr_china@163.com>",
   "license": "MIT",
-  "gitHead": "674844ac63d49674a49a0354825a8d79fff0a8ab"
+  "gitHead": "674844ac63d49674a49a0354825a8d79fff0a8ab",
+  "dependencies": {
+    "@mu-ui/mu-loading": "^0.1.0"
+  }
 }
