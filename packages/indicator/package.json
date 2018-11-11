@@ -1,5 +1,5 @@
 {
-  "name": "@mu/mu-indicator",
+  "name": "@mu-ui/mu-indicator",
   "version": "0.1.1",
   "private": false,
   "description": "indicator vue component for vue 2.x",
@@ -17,5 +17,6 @@
     "access": "public"
   },
   "author": "JR93 <gjr_china@163.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "gitHead": "674844ac63d49674a49a0354825a8d79fff0a8ab"
 }
