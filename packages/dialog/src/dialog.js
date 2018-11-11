@@ -15,8 +15,8 @@ const dialog = (options = {}) => {
     instance = getInstance()
   }
   if (instance.show) return
-  instance.title = options.title || '提示'
-  instance.message = options.message || '确定吗？'
+  instance.title = options.title || 'Tip'
+  instance.message = options.message || 'Are you sure?'
   instance.single = options.single || false
   instance.pre = options.pre || false
   instance.opacity = options.opacity || 0.1

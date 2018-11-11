@@ -23,7 +23,7 @@
           v-if="!isSingle"
           class="mu-dialog-btn mu-dialog-btn1 mu-dialog-btn-highlight"
           @click="handler(1)"
-        >{{ btns[1] || '确定' }}</div>
+        >{{ btns[1] || 'Confirm' }}</div>
       </div>
     </div>
   </div>
@@ -49,11 +49,11 @@ export default {
     },
     title: {
       type: String,
-      default: '提示'
+      default: 'Tip'
     },
     message: {
       type: String,
-      default: '确定吗？'
+      default: 'Are you sure?'
     },
     btns: {
       type: Array,
@@ -74,7 +74,7 @@ export default {
   },
   computed: {
     customBtnText() {
-      return this.btns[0] || (this.single ? '我知道了' : '取消')
+      return this.btns[0] || (this.single ? 'Confirm' : 'Cancel')
     },
     isSingle() {
       return this.btns.length === 1 || (this.single && this.btns.length === 0)
