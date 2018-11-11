@@ -8,7 +8,7 @@
 export default {
   data() {
     return {
-      name: 'world'
+      name: 'mu-ui'
     }
   }
 }

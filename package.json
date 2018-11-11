@@ -8,7 +8,10 @@
     "dev": "webpack-dev-server --config build/webpack.dev.js",
     "build": "lerna run build",
     "lint": "eslint --fix --ext .js,.vue .",
-    "release": "lerna publish --conventional-commits --registry https://npm-registry.yy.com"
+    "release": "lerna publish --conventional-commits"
+  },
+  "dependencies": {
+    "vue": "^2.5.17"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",

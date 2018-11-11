@@ -2,8 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>yym-ui</title>
-  <link rel="icon" href="http://www.yy.com/favicon.ico">
+  <title>mu-ui</title>
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -85,7 +84,7 @@
               }
               var rem = width / 10;
               docEl.style.fontSize = rem + 'px';
-              var realitySize = window.getComputedStyle(document.documentElement , null).fontSize.replace("px",'')*1;
+              var realitySize = window.getComputedStyle(document.documentElement , null).fontSize.replace("px",'') * 1;
               if (rem !== realitySize) {
                   rem = rem / (realitySize/rem);
                   docEl.style.fontSize = rem + 'px';
@@ -135,11 +134,8 @@
 
       })(window, window['lib'] || (window['lib'] = {}));
   </script>
-  <script src="//res.yy.com/libs/vconsole/vconsole.min.js"></script>
 </head>
 <body>
   <div id="app"></div>
-  <script src="//web.yystatic.com/public/global/base/js/yymobile_api.min.js"></script>
-  <script src="//res.yy.com/libs/vue/2.5.3/vue.js"></script>
 </body>
 </html>

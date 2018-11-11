@@ -85,8 +85,5 @@ module.exports = mode => ({
     },
     extensions: ['.js', '.vue'],
     modules: ['node_modules']
-  },
-  externals: {
-    vue: 'Vue'
   }
 })

@@ -19,6 +19,10 @@
     "prettier"
   ],
   "rules": {
-    "prettier/prettier": "error"
+    "prettier/prettier": "error",
+    "vue/html-self-closing": 0,
+    "vue/html-closing-bracket-newline": 0,
+    "vue/attribute-hyphenation": 0,
+    "vue/max-attributes-per-line": 0
   }
 }
