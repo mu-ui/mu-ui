@@ -1,6 +1,6 @@
 {
   "name": "@mu-ui/mu-flex",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "private": false,
   "description": "flex vue component for vue 2.x",
   "keywords": [
