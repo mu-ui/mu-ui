@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.2](https://github.com/mu-ui/mu-ui/compare/@mu-ui/mu-indicator@0.2.1...@mu-ui/mu-indicator@0.2.2) (2018-11-11)
+
+
+### Bug Fixes
+
+* **indicator:** dependence package error ([b63309f](https://github.com/mu-ui/mu-ui/commit/b63309f))
+
+
+
+
+
 ## [0.2.1](https://github.com/mu-ui/mu-ui/compare/@mu-ui/mu-indicator@0.2.0...@mu-ui/mu-indicator@0.2.1) (2018-11-11)
 
 **Note:** Version bump only for package @mu-ui/mu-indicator
