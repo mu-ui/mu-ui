@@ -10,7 +10,7 @@ const getInstance = () => {
   return new IndicatorClass().$mount(document.createElement('div'))
 }
 
-// 存储实例对象
+// stroe instance object
 let instance = null
 
 export default {
