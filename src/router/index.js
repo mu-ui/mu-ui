@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Storage from '@/views/components/storage.vue'
 import Qrcode from '@/views/components/qrcode.vue'
+import Toast from '@/views/components/toast.vue'
 
 Vue.use(Router)
 
@@ -13,6 +14,10 @@ const routes = [
   {
     path: '/qrcode',
     component: Qrcode
+  },
+  {
+    path: '/toast',
+    component: Toast
   }
 ]
 

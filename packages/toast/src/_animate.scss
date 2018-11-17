@@ -1,4 +1,4 @@
-@keyframes zoomIn {
+@keyframes bounceIn {
   from,
   35% {
     opacity: 0;
@@ -16,7 +16,7 @@
   }
 }
 
-@keyframes zoomOut {
+@keyframes bounceOut {
   from,
   35% {
     opacity: 1;

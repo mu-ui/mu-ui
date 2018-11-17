@@ -1,6 +1,6 @@
 <template>
-  <transition :name="transitionType" type="animation">
-    <div v-show="show" class="mu-toast" :class="positionClass">
+  <transition :name="type" type="animation" @after-leave="afterLeave">
+    <div v-show="show" class="mu-toast" :class="[posClass]">
       <p class="mu-toast-text" :class="customClass" :style="customStyle">
         {{ message }}
       </p>
@@ -13,11 +13,15 @@ export default {
   props: {
     message: {
       type: String,
-      default: ''
+      required: true
     },
     position: {
       type: String,
-      default: 'middle'
+      default: 'bottom'
+    },
+    duration: {
+      type: Number,
+      default: 3000
     },
     customClass: {
       type: String,
@@ -38,33 +42,39 @@ export default {
     }
   },
   computed: {
-    positionClass() {
-      let posClass = ''
-      if (~['top', 'bottom'].indexOf(this.position)) {
-        posClass = `pos-${this.position}`
-      } else {
-        posClass = 'pos-middle'
-      }
-      return posClass
+    isNotDefault() {
+      return ~['top', 'middle'].indexOf(this.position)
     },
-    transitionType() {
-      let style = ''
-      if (~['top', 'bottom'].indexOf(this.position)) {
-        style = `bounce-${this.position}`
-      } else {
-        style = 'zoom-middle'
-      }
-      return style
+    posClass() {
+      return this.isNotDefault ? `pos-${this.position}` : 'pos-bottom'
+    },
+    type() {
+      return this.isNotDefault ? `bounce-${this.position}` : 'bounce-bottom'
     },
     customStyle() {
       let styleObj = {}
-      if (this.color !== '') {
-        styleObj.color = this.color
-      }
-      if (this.bgColor !== '') {
-        styleObj.backgroundColor = this.bgColor
-      }
+      this.color !== '' && (styleObj.color = this.color)
+      this.bgColor !== '' && (styleObj.backgroundColor = this.bgColor)
       return styleObj
+    }
+  },
+  mounted() {
+    this.show = true
+    this.timer = setTimeout(() => {
+      this.show = false
+    }, this.duration)
+  },
+  beforeDestroy() {
+    if (this.timer) {
+      clearTimeout(this.timer)
+    }
+  },
+  methods: {
+    afterLeave() {
+      if (this.$el.parentNode) {
+        this.$el.parentNode.removeChild(this.$el)
+      }
+      this.$destroy()
     }
   }
 }
@@ -94,11 +104,11 @@ export default {
     left: 50%;
     transform: translate(-50%, 0);
   }
-  &.zoom-middle-enter-active {
-    animation: zoomIn 0.5s;
+  &.bounce-middle-enter-active {
+    animation: bounceIn 0.5s;
   }
-  &.zoom-middle-leave-active {
-    animation: zoomOut 0.5s;
+  &.bounce-middle-leave-active {
+    animation: bounceOut 0.5s;
   }
   &.bounce-top-enter-active {
     animation: bounceInDown 0.75s;
@@ -121,7 +131,7 @@ export default {
     box-sizing: border-box;
     word-break: break-all;
     color: #fff;
-    font-size: 14px;
+    font-size: 32px;
     background-color: rgba(0, 0, 0, 0.7);
     box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.2);
   }
