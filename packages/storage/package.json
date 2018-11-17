@@ -1,0 +1,21 @@
+{
+  "name": "@mu-ui/mu-storage",
+  "private": false,
+  "version": "0.0.0",
+  "description": "storage plugin for vue 2.x",
+  "keywords": [
+    "storage",
+    "plugin",
+    "vue"
+  ],
+  "main": "lib/index.common.js",
+  "module": "lib/index.esm.js",
+  "scripts": {
+    "build": "rimraf lib && rollup --config ../../build/rollup.component.js"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "JR93 <gjr_china@163.com>",
+  "license": "MIT"
+}
