@@ -6,6 +6,7 @@
 import QRCode from 'qrcode/build/qrcode.js'
 
 export default {
+  name: 'MuQrcode',
   props: {
     val: {
       type: String,
@@ -23,7 +24,7 @@ export default {
     },
     margin: {
       type: Number,
-      default: 4,
+      default: 2,
       validator(value) {
         return value >= 0
       }
