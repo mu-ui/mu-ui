@@ -3,6 +3,7 @@
     <router-link to="/storage" class="btn">storage</router-link>
     <router-link to="/qrcode" class="btn">qrcode</router-link>
     <router-link to="/toast" class="btn">toast</router-link>
+    <router-link to="/popup" class="btn">popup</router-link>
     <router-view class="main"></router-view>
   </div>
 </template>

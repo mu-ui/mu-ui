@@ -1,5 +1,5 @@
 <template>
-  <transition :name="transitionType">
+  <transition :name="type">
     <div
       v-show="show"
       class="mu-popup"
@@ -12,6 +12,7 @@
 
 <script>
 export default {
+  name: 'MuPopup',
   props: {
     value: {
       type: Boolean,
@@ -28,7 +29,7 @@ export default {
       type: String,
       default: 'fade',
       validator(value) {
-        return ~['fade', 'slide'].indexOf(value)
+        return value !== ''
       }
     },
     modal: {
@@ -60,7 +61,10 @@ export default {
     }
   },
   computed: {
-    transitionType() {
+    type() {
+      if (!~['fade', 'slide'].indexOf(this.transition)) {
+        return this.transition
+      }
       return this.position === 'center' ? 'fade' : 'slide'
     }
   },
@@ -71,31 +75,30 @@ export default {
     }
   },
   created() {
-    // 只有初始化实例时创建
     this.createModal()
   },
   methods: {
     createModal() {
       if (this.modal) {
         const modalAmount = document.querySelectorAll('.mu-popup-modal').length
-        let popupModalEl = document.createElement('div')
-        popupModalEl.className = `mu-popup-modal mu-popup-modal-${modalAmount}`
-        popupModalEl.style.backgroundColor = `rgba(0, 0, 0, ${this.opacity})`
-        popupModalEl.style.transitionDuration = `${this.duration}s`
-        document.body.appendChild(popupModalEl)
+        let popupModal = document.createElement('div')
+        popupModal.className = `mu-popup-modal mu-popup-modal-${modalAmount}`
+        popupModal.style.backgroundColor = `rgba(0, 0, 0, ${this.opacity})`
+        popupModal.style.transitionDuration = `${this.duration}s`
+        document.body.appendChild(popupModal)
 
         if (this.clickable) {
-          popupModalEl.addEventListener('click', () => {
+          popupModal.addEventListener('click', () => {
             this.$emit('input', false)
             this.toggleModal(false)
           })
-          popupModalEl.addEventListener(
+          popupModal.addEventListener(
             'transitionend',
             () => !this.show && this.hideModal()
           )
         }
         // 挂载节点
-        this.modalEl = popupModalEl
+        this.modalEl = popupModal
       }
       if (this.value) {
         this.$nextTick(() => {
@@ -121,77 +124,57 @@ export default {
 </script>
 
 <style lang="scss">
+@mixin slide-transition($x, $y) {
+  transform: translate(0, 0);
+  &.slide-enter,
+  &.slide-leave-active {
+    transform: translate($x, $y);
+  }
+  &.slide-enter-active,
+  &.slide-leave-active {
+    transition-property: transform;
+  }
+}
 .mu-popup {
   z-index: 3001;
   position: fixed;
   &-center {
     top: 50%;
     left: 50%;
-    transform: translate3d(-50%, -50%, 0);
+    transform: translate3d(-50%, -50%, 0) scale(1);
     &.fade-enter,
     &.fade-leave-active {
       opacity: 0;
+      transform: translate3d(-50%, -50%, 0) scale(0.5);
     }
     &.fade-enter-active,
     &.fade-leave-active {
-      transition-property: opacity;
+      transition-property: opacity, transform;
     }
   }
   &-top {
     top: 0;
     left: 0;
     right: 0;
-    transform: translate(0, 0);
-    &.slide-enter,
-    &.slide-leave-active {
-      transform: translate(0, -100%);
-    }
-    &.slide-enter-active,
-    &.slide-leave-active {
-      transition-property: transform;
-    }
+    @include slide-transition(0, -100%);
   }
   &-bottom {
     bottom: 0;
     left: 0;
     right: 0;
-    transform: translate(0, 0);
-    &.slide-enter,
-    &.slide-leave-active {
-      transform: translate(0, 100%);
-    }
-    &.slide-enter-active,
-    &.slide-leave-active {
-      transition-property: transform;
-    }
+    @include slide-transition(0, 100%);
   }
   &-left {
     top: 0;
     left: 0;
     bottom: 0;
-    transform: translate(0, 0);
-    &.slide-enter,
-    &.slide-leave-active {
-      transform: translate(-100%, 0);
-    }
-    &.slide-enter-active,
-    &.slide-leave-active {
-      transition-property: transform;
-    }
+    @include slide-transition(-100%, 0);
   }
   &-right {
     top: 0;
     bottom: 0;
     right: 0;
-    transform: translate(0, 0);
-    &.slide-enter,
-    &.slide-leave-active {
-      transform: translate(100%, 0);
-    }
-    &.slide-enter-active,
-    &.slide-leave-active {
-      transition-property: transform;
-    }
+    @include slide-transition(100%, 0);
   }
 }
 .mu-popup-modal {
