@@ -14,7 +14,7 @@ export default {
   methods: {
     showToast(pos) {
       this.$toast({
-        message: `My position is ${pos}`,
+        message: `My position is ${pos}My position is ${pos}My position is ${pos}My position is ${pos}`,
         position: pos,
         duration: pos === 'bottom' ? 4000 : 3000,
         color: pos === 'top' ? '#fff' : '',
@@ -27,11 +27,6 @@ export default {
 </script>
 
 <style lang="scss">
-.toast-middle {
-  background-color: #f60;
-  color: #fff;
-  font-size: 33px;
-}
 .toast-btn {
   display: block;
   padding: 10px;

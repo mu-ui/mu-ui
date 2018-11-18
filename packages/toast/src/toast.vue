@@ -125,15 +125,15 @@ export default {
   &-text {
     display: inline-block;
     min-width: 200px;
-    padding: 10px 20px;
-    line-height: 40px;
+    padding: 5px 10px;
+    line-height: 22px;
     border-radius: 5px;
     box-sizing: border-box;
     word-break: break-all;
     color: #fff;
-    font-size: 32px;
+    font-size: 16px;
     background-color: rgba(0, 0, 0, 0.7);
-    box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.2);
   }
 }
 </style>

@@ -4,6 +4,7 @@ import Storage from '@/views/components/storage.vue'
 import Qrcode from '@/views/components/qrcode.vue'
 import Toast from '@/views/components/toast.vue'
 import Popup from '@/views/components/popup.vue'
+import Loading from '@/views/components/loading.vue'
 
 Vue.use(Router)
 
@@ -23,6 +24,10 @@ const routes = [
   {
     path: '/popup',
     component: Popup
+  },
+  {
+    path: '/loading',
+    component: Loading
   }
 ]
 

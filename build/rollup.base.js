@@ -5,7 +5,7 @@ import postcss from 'rollup-plugin-postcss'
 import postcssImport from 'postcss-import'
 import preset from 'postcss-preset-env'
 import cssnano from 'cssnano'
-import pxtorem from 'postcss-pxtorem'
+// import pxtorem from 'postcss-pxtorem'
 import vue from 'rollup-plugin-vue'
 import babel from 'rollup-plugin-babel'
 import { terser } from 'rollup-plugin-terser'
@@ -30,12 +30,12 @@ const postcssCfg = [
   preset({
     browsers: 'last 2 versions'
   }),
-  pxtorem({
-    rootValue: 75,
-    unitPrecision: 4,
-    propList: ['*'],
-    minPixelValue: 2
-  }),
+  // pxtorem({
+  //   rootValue: 75,
+  //   unitPrecision: 4,
+  //   propList: ['*'],
+  //   minPixelValue: 2
+  // }),
   cssnano()
 ]
 

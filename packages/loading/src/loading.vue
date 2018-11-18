@@ -1,60 +1,91 @@
 <template>
   <div class="mu-loading">
-    <component
-      :is="type"
-      :width="size"
-      :height="size"
-      :color="color"
-    />
-    <slot />
+    <slot name="icon">
+      <div class="mu-loading-icon" :style="iconStyle"></div>
+    </slot>
+    <div class="mu-loading-con">
+      <slot>
+        <span class="mu-loading-tip">loading...</span>
+      </slot>
+    </div>
   </div>
 </template>
 
 <script>
-import Spinner from './components/spinner.vue'
-import dualRing from './components/dual-ring.vue'
-import Rolling from './components/rolling.vue'
-
 export default {
-  /* eslint-disable */
-  components: {
-    Spinner,
-    dualRing,
-    Rolling
-  },
-  /* eslint-enable */
+  name: 'MuLoading',
   props: {
-    type: {
-      type: String,
-      default: 'dual-ring',
-      validator(value) {
-        return ~['dual-ring', 'spinner', 'rolling'].indexOf(value)
-      }
-    },
     color: {
       type: String,
-      default: '#fd0',
-      validator(value) {
-        return value !== ''
+      default: '#272639',
+      validator(val) {
+        return val !== ''
+      }
+    },
+    type: {
+      type: String,
+      default: 'ring',
+      validator(val) {
+        return ~['ring', 'dual-ring'].indexOf(val)
       }
     },
     size: {
       type: Number,
-      default: 60,
-      validator(value) {
-        return value >= 10
+      default: 30,
+      validator(val) {
+        return val => 20
       }
+    },
+    width: {
+      type: Number,
+      default: 3,
+      validator(val) {
+        return val > 0
+      }
+    }
+  },
+  computed: {
+    iconStyle() {
+      let style = {
+        width: `${this.size}px`,
+        height: `${this.size}px`,
+        borderWidth: `${this.width}px`,
+        borderColor: this.color,
+        borderRightColor: 'transparent'
+      }
+      if (this.type === 'dual-ring') {
+        style.borderLeftColor = 'transparent'
+      }
+      return style
     }
   }
 }
 </script>
 
 <style lang="scss">
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 .mu-loading {
   text-align: center;
-  svg {
-    display: block;
-    margin: 0 auto;
+  &-icon {
+    display: inline-block;
+    box-sizing: border-box;
+    border-radius: 50%;
+    border-style: solid;
+    animation: rotate 1s linear infinite;
+  }
+  &-con {
+    padding-top: 10px;
+  }
+  &-tip {
+    font-size: 14px;
+    color: #666;
   }
 }
 </style>

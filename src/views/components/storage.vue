@@ -22,7 +22,7 @@ export default {
 
 <style lang="scss">
 .storage {
-  font-size: 30px;
+  font-size: 14px;
   color: #333;
 }
 </style>
