@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.3](https://github.com/mu-ui/mu-ui/compare/@mu-ui/mu-indicator@0.2.2...@mu-ui/mu-indicator@0.2.3) (2018-11-18)
+
+**Note:** Version bump only for package @mu-ui/mu-indicator
+
+
+
+
+
 ## [0.2.2](https://github.com/mu-ui/mu-ui/compare/@mu-ui/mu-indicator@0.2.1...@mu-ui/mu-indicator@0.2.2) (2018-11-11)
 
 
