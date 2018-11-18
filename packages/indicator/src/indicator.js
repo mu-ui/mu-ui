@@ -1,42 +1,32 @@
 import Vue from 'vue'
 import Loading from '@mu-ui/mu-loading'
-import IndicatorTemplate from './indicator.vue'
+import Indicator from './indicator.vue'
 
-Vue.use(Loading)
+Vue.component('mu-loading', Loading)
+const IndicatorClass = Vue.extend(Indicator)
 
-const IndicatorClass = Vue.extend(IndicatorTemplate)
-
-const getInstance = () => {
-  return new IndicatorClass().$mount(document.createElement('div'))
-}
-
-// stroe instance object
 let instance = null
 
 export default {
   show(options = {}) {
-    if (!instance) {
-      instance = getInstance()
+    if (typeof options === 'string') {
+      options = {
+        tip: options
+      }
     }
-    if (instance.show) return
-    instance.tip =
-      typeof options === 'string' ? options : options.tip || '加载中...'
-    instance.type = options.type || 'rolling'
-    instance.color = options.color || '#fff'
-    instance.bgColor = options.bgColor || ''
-    instance.maskColor = options.maskColor || ''
 
-    if (!instance.isMounted) {
-      document.body.appendChild(instance.$el)
-      Vue.nextTick(() => {
-        instance.isMounted = true
-        instance.show = true
-      })
-    } else {
-      instance.show = true
-    }
+    instance = new IndicatorClass({
+      propsData: options
+    }).$mount()
+
+    document.body.appendChild(instance.$el)
   },
   hide() {
-    !!instance && (instance.show = false)
+    instance.show = false
+    instance.$destroy()
+    if (instance.$el.parentNode) {
+      instance.$el.parentNode.removeChild(instance.$el)
+    }
+    instance = null
   }
 }

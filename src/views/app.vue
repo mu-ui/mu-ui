@@ -6,6 +6,7 @@
       <router-link to="/toast" class="btn">toast</router-link>
       <router-link to="/popup" class="btn">popup</router-link>
       <router-link to="/loading" class="btn">loading</router-link>
+      <router-link to="/indicator" class="btn">indicator</router-link>
     </nav>
     <router-view class="main"></router-view>
   </div>
@@ -29,12 +30,12 @@ export default {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    align-content: space-between;
   }
   .btn {
     height: 24px;
     line-height: 24px;
     padding: 0 10px;
+    margin-bottom: 10px;
     text-align: center;
     background-color: lightblue;
     color: #fff;

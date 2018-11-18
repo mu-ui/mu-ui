@@ -1,10 +1,11 @@
 <template>
   <div
-    v-show="show" class="mu-indicator" :style="{'background-color': maskColor}">
+    v-show="show" class="mu-indicator" :style="{'background': maskColor}">
     <div class="mu-indicator-bd" :style="{'background-color': bgColor}">
       <mu-loading
         class="mu-indicator-loading"
         :type="type"
+        :size="40"
         :color="color">
         <p
           class="mu-indicator-text"
@@ -21,7 +22,10 @@ export default {
   props: {
     type: {
       type: String,
-      default: 'rolling'
+      default: 'ring',
+      validator(val) {
+        return ~['ring', 'dual-ring'].indexOf(val)
+      }
     },
     color: {
       type: String,
@@ -29,22 +33,24 @@ export default {
     },
     bgColor: {
       type: String,
-      default: ''
+      default: 'rgba(0, 0, 0, 0.7)'
     },
     maskColor: {
       type: String,
-      default: ''
+      default: 'transparent'
     },
     tip: {
       type: String,
-      default: ''
+      default: 'Loading...'
     }
   },
   data() {
     return {
-      show: false,
-      isMounted: false
+      show: false
     }
+  },
+  mounted() {
+    this.show = true
   }
 }
 </script>
@@ -57,26 +63,19 @@ export default {
   left: 0;
   right: 0;
   bottom: 0;
-  background: transparent;
-  pointer-events: none;
   &-bd {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 200px;
-    height: 200px;
-    border-radius: 15px;
+    min-width: 100px;
+    min-height: 100px;
+    border-radius: 5px;
     text-align: center;
-    box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.2);
-    background-color: rgba(0, 0, 0, 0.7);
+    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.2);
     transform: translate3d(-50%, -50%, 0);
   }
   &-loading {
-    margin-top: 20px;
-    color: #fff;
-  }
-  &-text {
-    padding-top: 15px;
+    margin-top: 10px;
   }
 }
 </style>
