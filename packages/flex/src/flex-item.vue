@@ -6,6 +6,7 @@
 
 <script>
 export default {
+  name: 'MuFlexItem',
   props: {
     flex: {
       type: Number,

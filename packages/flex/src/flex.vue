@@ -6,6 +6,7 @@
 
 <script>
 export default {
+  name: 'MuFlex',
   props: {
     inline: {
       type: Boolean,
