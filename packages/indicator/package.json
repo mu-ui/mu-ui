@@ -1,6 +1,6 @@
 {
   "name": "@mu-ui/mu-indicator",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "private": false,
   "description": "indicator vue plugin for vue 2.x",
   "keywords": [
