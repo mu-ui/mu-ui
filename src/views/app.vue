@@ -9,7 +9,6 @@
       <router-link to="/indicator" class="btn">indicator</router-link>
       <router-link to="/dialog" class="btn">dialog</router-link>
       <router-link to="/scroll" class="btn">scroll</router-link>
-      <router-link to="/pulldown" class="btn">pulldown</router-link>
     </nav>
     <router-view class="main"></router-view>
   </div>

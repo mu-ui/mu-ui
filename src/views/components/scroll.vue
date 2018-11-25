@@ -11,7 +11,7 @@
         'transition-duration': `${duration}ms`,
         'transform': `translate(0px, ${diff}px) scale(1) translateZ(0px)`
       }">
-        <li v-for="n in 30" :key="n">我是第{{ n }}个lilili</li>
+        <li v-for="n in 150" :key="n">我是第{{ n }}个lilili</li>
       </ul>
       <div ref="pullup" class="bottom" :style="{
         'transition-timing-function': 'cubic-bezier(0.165, 0.84, 0.44, 1)',
@@ -40,10 +40,10 @@ export default {
       dirDistance: 0,
       startY: 0,
       curY: 0,
-      distanceStep: 3,
+      distanceStep: 2,
       startTime: 0,
       endTime: 0,
-      autoScroll: 200,
+      autoScroll: 400,
       maxThreshold: 40,
       defaultBounceDuration: 800,
       defaultAutoScrollDuration: 600,
@@ -159,27 +159,34 @@ export default {
         }
         return
       }
-      this.handleScroll()
-    },
-    handleScroll() {
       const moveTime = this.endTime - this.startTime
       const absDistance = Math.abs(this.dirDistance)
-      if ((moveTime < 200 && absDistance > 50) || absDistance / moveTime > 20) {
-        if (this.dirDistance > 0) {
-          if (this.diff < -this.autoScroll) {
-            this.distance = this.diff + this.autoScroll
-          } else {
-            this.distance = 0
-          }
-        } else {
-          if (this.diff - this.autoScroll > -this.scrollHeight) {
-            this.distance = this.diff - this.autoScroll
-          } else {
-            this.dstance = -this.scrollHeight
-          }
-        }
-        this.scrollTo(this.distance, this.defaultAutoScrollDuration)
+      if (
+        (moveTime < 150 && absDistance > 30) ||
+        (absDistance / moveTime < 0.3 && absDistance > 80)
+      ) {
+        this.handleScroll(this.autoScroll, this.defaultAutoScrollDuration)
+      } else if (absDistance / moveTime > 0.35 && moveTime < 2500) {
+        this.handleScroll(200, 2000)
       }
+    },
+    handleScroll(scrollDis, scrollTime) {
+      if (this.dirDistance > 0) {
+        if (this.diff < -scrollDis) {
+          this.distance = this.diff + scrollDis
+        } else {
+          this.distance = 0
+          scrollTime /= 2
+        }
+      } else {
+        if (this.diff - scrollDis > -this.scrollHeight) {
+          this.distance = this.diff - scrollDis
+        } else {
+          this.dstance = -this.scrollHeight
+          scrollTime /= 2
+        }
+      }
+      this.scrollTo(this.distance, scrollTime)
     },
     scrollTo(dis, time) {
       this.duration = time || this.defaultBounceDuration
@@ -220,22 +227,22 @@ export default {
       top: 0;
       left: 0;
       right: 0;
-      height: 80px;
+      height: 50px;
       line-height: 50px;
       font-size: 16px;
       text-align: center;
-      background-color: rgba(0, 0, 0, 0.3);
+      // background-color: rgba(0, 0, 0, 0.3);
     }
     .bottom {
       position: absolute;
       bottom: 0;
       right: 0;
       left: 0;
-      height: 80px;
+      height: 50px;
       line-height: 50px;
       font-size: 16px;
       text-align: center;
-      background-color: rgba(0, 0, 0, 0.3);
+      // background-color: rgba(0, 0, 0, 0.3);
     }
   }
 }
