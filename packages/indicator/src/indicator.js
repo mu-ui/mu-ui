@@ -14,11 +14,13 @@ export default {
         tip: options
       }
     }
-
-    instance = new IndicatorClass({
-      propsData: options
-    }).$mount()
-
+    if (!instance) {
+      instance = new IndicatorClass({
+        propsData: options
+      }).$mount()
+    } else if (instance.show) {
+      return
+    }
     document.body.appendChild(instance.$el)
   },
   hide() {
