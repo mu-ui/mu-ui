@@ -16,12 +16,14 @@
       <div class="mu-dialog-handler" :class="{'mu-loading-sep-line': !isSingle}">
         <div
           class="mu-dialog-btn mu-dialog-btn0"
-          :class="{'mu-dialog-btn-highlight': isSingle, 'mu-dialog-order1': !isSingle && pre}"
+          :class="{'mu-dialog-order1': !isSingle && pre}"
+          :style="[isSingle ? {'color': highlight} : '']"
           @click="handler(0)"
         >{{ customBtnText }}</div>
         <div
           v-if="!isSingle"
-          class="mu-dialog-btn mu-dialog-btn1 mu-dialog-btn-highlight"
+          class="mu-dialog-btn mu-dialog-btn1"
+          :style="{'color': highlight}"
           @click="handler(1)"
         >{{ btns[1] || 'Confirm' }}</div>
       </div>
@@ -31,6 +33,7 @@
 
 <script>
 export default {
+  name: 'MuDialog',
   props: {
     single: {
       type: Boolean,
@@ -61,6 +64,10 @@ export default {
         return []
       }
     },
+    highlight: {
+      type: String,
+      default: '#272639'
+    },
     value: {
       type: Boolean,
       default: false
@@ -68,7 +75,7 @@ export default {
   },
   data() {
     return {
-      isMounted: false, // 给实例方法
+      isMounted: false,
       show: false
     }
   },
@@ -92,14 +99,13 @@ export default {
   },
   methods: {
     handler(btnIndex) {
-      // 实例方法处理
       if (this.isMounted) {
         this.show = false
       } else {
         this.$emit('input', false)
       }
       if (this.isSingle || btnIndex === 1) {
-        this.$emit('sure')
+        this.$emit('confirm')
       } else {
         this.$emit('cancel')
       }
@@ -120,31 +126,31 @@ export default {
     position: absolute;
     top: 50%;
     left: 50%;
-    min-width: 520px;
-    min-height: 250px;
-    border-radius: 15px;
+    min-width: 260px;
+    min-height: 125px;
+    border-radius: 6px;
     box-sizing: border-box;
     text-align: center;
-    box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.1);
     background-color: #fff;
     transform: translate3d(-50%, -50%, 0);
   }
   &-con {
-    padding: 20px 20px 0 20px;
-    margin-bottom: 110px;
+    padding: 10px 10px 0 10px;
+    margin-bottom: 55px;
   }
   &-title {
-    padding-top: 15px;
+    padding-top: 10px;
     font-weight: bold;
-    font-size: 30px;
+    font-size: 16px;
   }
   &-message {
     display: inline-flex;
     align-items: center;
-    min-height: 80px;
-    padding-top: 20px;
-    line-height: 40px;
-    font-size: 26px;
+    min-height: 40px;
+    padding-top: 10px;
+    line-height: 20px;
+    font-size: 14px;
   }
   &-handler {
     display: flex;
@@ -153,10 +159,10 @@ export default {
     left: 0;
     bottom: 0;
     right: 0;
-    height: 80px;
-    line-height: 80px;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
+    height: 40px;
+    line-height: 40px;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
     border-top: 1px solid #eee;
     overflow: hidden;
     &.mu-loading-sep-line {
@@ -176,14 +182,11 @@ export default {
   &-btn {
     flex: 1;
     color: #ccc;
-    font-size: 28px;
+    font-size: 14px;
     font-weight: bold;
     cursor: pointer;
     &:active {
       background-color: rgba(0, 0, 0, 0.05);
-    }
-    &.mu-dialog-btn-highlight {
-      color: #fd0;
     }
     &.mu-dialog-order1 {
       order: 1;

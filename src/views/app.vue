@@ -7,6 +7,9 @@
       <router-link to="/popup" class="btn">popup</router-link>
       <router-link to="/loading" class="btn">loading</router-link>
       <router-link to="/indicator" class="btn">indicator</router-link>
+      <router-link to="/dialog" class="btn">dialog</router-link>
+      <router-link to="/scroll" class="btn">scroll</router-link>
+      <router-link to="/pulldown" class="btn">pulldown</router-link>
     </nav>
     <router-view class="main"></router-view>
   </div>
@@ -29,12 +32,12 @@ export default {
   .nav-list {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
   }
   .btn {
     height: 24px;
     line-height: 24px;
     padding: 0 10px;
+    margin-right: 5px;
     margin-bottom: 10px;
     text-align: center;
     background-color: lightblue;

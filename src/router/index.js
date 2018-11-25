@@ -6,6 +6,9 @@ import Toast from '@/views/components/toast.vue'
 import Popup from '@/views/components/popup.vue'
 import Loading from '@/views/components/loading.vue'
 import Indicator from '@/views/components/indicator.vue'
+import Dialog from '@/views/components/dialog.vue'
+import Scroll from '@/views/components/scroll.vue'
+import PullDown from '@/views/components/pulldown.vue'
 
 Vue.use(Router)
 
@@ -33,6 +36,18 @@ const routes = [
   {
     path: '/indicator',
     component: Indicator
+  },
+  {
+    path: '/dialog',
+    component: Dialog
+  },
+  {
+    path: '/scroll',
+    component: Scroll
+  },
+  {
+    path: '/pulldown',
+    component: PullDown
   }
 ]
 

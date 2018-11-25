@@ -5,10 +5,12 @@ import App from './views/app.vue'
 import Storage from '../packages/storage/index'
 import Toast from '../packages/toast/index'
 import Indicator from '../packages/indicator/index'
+import Dialog from '../packages/dialog/index'
 
 Vue.use(Storage)
 Vue.use(Toast)
 Vue.use(Indicator)
+Vue.use(Dialog)
 
 new Vue({ // eslint-disable-line
   el: '#app',

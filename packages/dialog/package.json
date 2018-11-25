@@ -2,11 +2,12 @@
   "name": "@mu-ui/mu-dialog",
   "private": false,
   "version": "0.1.1",
-  "description": "dialog vue component for vue 2.x",
+  "description": "dialog vue component & plugin for vue 2.x",
   "keywords": [
     "dialog",
     "vue",
-    "components"
+    "component",
+    "plugin"
   ],
   "main": "lib/index.common.js",
   "module": "lib/index.esm.js",
