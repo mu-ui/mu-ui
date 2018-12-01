@@ -10,6 +10,7 @@
       <router-link to="/indicator" class="btn">indicator</router-link>
       <router-link to="/dialog" class="btn">dialog</router-link>
       <router-link to="/sudoku" class="btn">sudoku</router-link>
+      <router-link to="/rotary" class="btn">rotary</router-link>
       <router-link to="/scroll" class="btn">scroll</router-link>
     </nav>
     <router-view class="main"></router-view>

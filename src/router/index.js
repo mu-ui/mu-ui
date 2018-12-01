@@ -9,6 +9,7 @@ import Loading from '@/views/components/loading.vue'
 import Indicator from '@/views/components/indicator.vue'
 import Dialog from '@/views/components/dialog.vue'
 import Sudoku from '@/views/components/sudoku.vue'
+import Rotary from '@/views/components/rotary.vue'
 import Scroll from '@/views/components/scroll.vue'
 
 Vue.use(Router)
@@ -49,6 +50,10 @@ const routes = [
   {
     path: '/sudoku',
     component: Sudoku
+  },
+  {
+    path: '/rotary',
+    component: Rotary
   },
   {
     path: '/scroll',
