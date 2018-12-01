@@ -1,0 +1,24 @@
+{
+  "name": "@mu-ui/mu-sudoku",
+  "version": "0.0.0",
+  "private": false,
+  "description": "sudoku vue component for vue 2.x",
+  "keywords": [
+    "sudoku",
+    "vue",
+    "components"
+  ],
+  "main": "lib/index.common.js",
+  "module": "lib/index.esm.js",
+  "scripts": {
+    "build": "rimraf lib && rollup --config ../../build/rollup.component.js"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "JR93 <gjr_china@163.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@mu-ui/mu-flex": "^0.1.1"
+  }
+}

@@ -11,7 +11,7 @@
         'transition-duration': `${duration}ms`,
         'transform': `translate(0px, ${diff}px) scale(1) translateZ(0px)`
       }">
-        <li v-for="n in 150" :key="n">我是第{{ n }}个lilili</li>
+        <li v-for="n in 150" :key="n" @click="doit">我是第{{ n }}个lilili</li>
       </ul>
       <div ref="pullup" class="bottom" :style="{
         'transition-timing-function': 'cubic-bezier(0.165, 0.84, 0.44, 1)',
@@ -40,13 +40,13 @@ export default {
       dirDistance: 0,
       startY: 0,
       curY: 0,
-      distanceStep: 2,
+      distanceStep: 4,
       startTime: 0,
       endTime: 0,
-      autoScroll: 400,
+      autoScroll: 500,
       maxThreshold: 40,
       defaultBounceDuration: 800,
-      defaultAutoScrollDuration: 600,
+      defaultAutoScrollDuration: 500,
       pullDuration: 0,
       pullDownHeight: 0,
       pullUpHeight: 0,
@@ -62,6 +62,9 @@ export default {
     this.init()
   },
   methods: {
+    doit() {
+      console.log(111)
+    },
     init() {
       this.wrapper = this.$refs.wrapper
       this.scroll = this.$refs.scroll
@@ -104,39 +107,41 @@ export default {
       event.preventDefault()
       event.stopPropagation()
       if (
-        this.diff > this.maxThreshold + this.pullDownHeight ||
-        this.diff < -this.scrollHeight - this.maxThreshold - this.pullUpHeight
+        this.diff <= this.maxThreshold + this.pullDownHeight &&
+        this.diff >= -this.scrollHeight - this.maxThreshold - this.pullUpHeight
       ) {
-        return
-      }
-      this.curY = event.touches[0].pageY
-      this.dirDistance = this.curY - this.startY
-      this.distance = this.dirDistance + this.lastDiff
-      if (
-        (this.diff > 0 && this.dirDistance > 0) ||
-        (this.diff < -this.scrollHeight && this.dirDistance < 0)
-      ) {
-        if (this.extraPullDiff === 0) {
-          this.extraPullDiff = this.dirDistance
+        this.curY = event.touches[0].pageY
+        this.dirDistance = this.curY - this.startY
+        this.distance = this.dirDistance + this.lastDiff
+        if (
+          (this.diff > 0 && this.dirDistance > 0) ||
+          (this.diff < -this.scrollHeight && this.dirDistance < 0)
+        ) {
+          if (this.extraPullDiff === 0) {
+            this.extraPullDiff = this.dirDistance
+          }
+          const realPullScrollDis =
+            (this.dirDistance - this.extraPullDiff) / this.distanceStep
+          this.distance = realPullScrollDis + this.extraPullDiff + this.lastDiff
+          if (this.dirDistance > 0) {
+            this.pullDownDiff = realPullScrollDis + this.lastPullDownDiff
+          } else {
+            this.pullUpDiff = realPullScrollDis + this.lastPullUpDiff
+          }
         }
-        const realPullScrollDis =
-          (this.dirDistance - this.extraPullDiff) / this.distanceStep
-        this.distance = realPullScrollDis + this.extraPullDiff + this.lastDiff
-        if (this.dirDistance > 0) {
-          this.pullDownDiff = realPullScrollDis + this.lastPullDownDiff
-        } else {
-          this.pullUpDiff = realPullScrollDis + this.lastPullUpDiff
+        this.diff = this.distance
+        if (this.pullDownDiff >= -this.pullDownHeight && this.dirDistance < 0) {
+          this.pullDownDiff = this.dirDistance + this.lastPullDownDiff
         }
-      }
-      this.diff = this.distance
-      if (this.pullDownDiff >= -this.pullDownHeight && this.dirDistance < 0) {
-        this.pullDownDiff = this.dirDistance + this.lastPullDownDiff
-      }
-      if (this.pullUpDiff <= this.pullUpHeight && this.dirDistance > 0) {
-        this.pullUpDiff = this.dirDistance + this.lastPullUpDiff
+        if (this.pullUpDiff <= this.pullUpHeight && this.dirDistance > 0) {
+          this.pullUpDiff = this.dirDistance + this.lastPullUpDiff
+        }
       }
     },
     handleTouchEnd(event) {
+      if (Math.abs(event.changedTouches[0].pageY - this.startY) < 1) {
+        return
+      }
       this.extraPullDiff = 0
       this.endTime = +Date.now()
       if (this.diff < -this.scrollHeight) {
@@ -148,8 +153,7 @@ export default {
           this.pullScrollTo('down', this.pullUpHeight)
         }
         return
-      }
-      if (this.diff > 0) {
+      } else if (this.diff > 0) {
         if (this.pullDownDiff >= 0 && this.distance > 0) {
           this.scrollTo(this.pullDownHeight)
           this.pullScrollTo('up', 0)
@@ -161,12 +165,12 @@ export default {
       }
       const moveTime = this.endTime - this.startTime
       const absDistance = Math.abs(this.dirDistance)
-      if (
-        (moveTime < 150 && absDistance > 30) ||
-        (absDistance / moveTime < 0.3 && absDistance > 80)
-      ) {
+      const scrollRate = absDistance / moveTime
+      if (scrollRate > 0.7) {
         this.handleScroll(this.autoScroll, this.defaultAutoScrollDuration)
-      } else if (absDistance / moveTime > 0.35 && moveTime < 2500) {
+      } else if (scrollRate > 0.5) {
+        this.handleScroll(this.autoScroll, 2000)
+      } else if (scrollRate > 0.3) {
         this.handleScroll(200, 2000)
       }
     },
@@ -176,14 +180,12 @@ export default {
           this.distance = this.diff + scrollDis
         } else {
           this.distance = 0
-          scrollTime /= 2
         }
       } else {
         if (this.diff - scrollDis > -this.scrollHeight) {
           this.distance = this.diff - scrollDis
         } else {
           this.dstance = -this.scrollHeight
-          scrollTime /= 2
         }
       }
       this.scrollTo(this.distance, scrollTime)
