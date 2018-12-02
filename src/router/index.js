@@ -8,6 +8,7 @@ import Popup from '@/views/components/popup.vue'
 import Loading from '@/views/components/loading.vue'
 import Indicator from '@/views/components/indicator.vue'
 import Dialog from '@/views/components/dialog.vue'
+import InfiniteLoading from '@/views/components/infinite-loading.vue'
 import Sudoku from '@/views/components/sudoku.vue'
 import Rotary from '@/views/components/rotary.vue'
 import Scroll from '@/views/components/scroll.vue'
@@ -38,6 +39,10 @@ const routes = [
   {
     path: '/loading',
     component: Loading
+  },
+  {
+    path: '/infinite-loading',
+    component: InfiniteLoading
   },
   {
     path: '/indicator',

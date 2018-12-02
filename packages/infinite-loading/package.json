@@ -1,0 +1,24 @@
+{
+  "name": "@mu-ui/mu-infinite-loading",
+  "version": "0.0.0",
+  "private": false,
+  "description": "infinite-loading vue component for vue 2.x",
+  "keywords": [
+    "infinite-loading",
+    "vue",
+    "components"
+  ],
+  "main": "lib/index.common.js",
+  "module": "lib/index.esm.js",
+  "scripts": {
+    "build": "rimraf lib && rollup --config ../../build/rollup.component.js"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "JR93 <gjr_china@163.com>",
+  "license": "MIT",
+  "dependencies": {
+    "lodash": "^4.17.11"
+  }
+}

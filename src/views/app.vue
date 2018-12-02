@@ -7,6 +7,7 @@
       <router-link to="/flex" class="btn">flex</router-link>
       <router-link to="/popup" class="btn">popup</router-link>
       <router-link to="/loading" class="btn">loading</router-link>
+      <router-link to="/infinite-loading" class="btn">infinite-loading</router-link>
       <router-link to="/indicator" class="btn">indicator</router-link>
       <router-link to="/dialog" class="btn">dialog</router-link>
       <router-link to="/sudoku" class="btn">sudoku</router-link>
