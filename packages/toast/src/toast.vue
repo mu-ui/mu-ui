@@ -1,5 +1,5 @@
 <template>
-  <transition :name="type" type="animation" @after-leave="afterLeave">
+  <transition :name="type" type="animation" @after-enter="afterEnter" @after-leave="afterLeave">
     <div v-show="show" class="mu-toast" :class="[posClass]">
       <p class="mu-toast-text" :class="customClass" :style="customStyle">
         {{ message }}
@@ -60,9 +60,6 @@ export default {
   },
   mounted() {
     this.show = true
-    this.timer = setTimeout(() => {
-      this.show = false
-    }, this.duration)
   },
   beforeDestroy() {
     if (this.timer) {
@@ -70,6 +67,11 @@ export default {
     }
   },
   methods: {
+    afterEnter() {
+      this.timer = setTimeout(() => {
+        this.show = false
+      }, this.duration)
+    },
     afterLeave() {
       if (this.$el.parentNode) {
         this.$el.parentNode.removeChild(this.$el)

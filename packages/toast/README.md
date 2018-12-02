@@ -71,4 +71,4 @@ backgroundColor
 Type: String
 Default: ''
 
-custom className to overwrite default style. pay attention to the CSS class scope
+custom className to overwrite default style. Please pay attention to the CSS class scope
