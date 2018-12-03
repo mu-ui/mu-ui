@@ -16,14 +16,14 @@ const pkg = require(`${cwd}/package.json`)
 
 const exactCSS = process.env.EXACT_CSS || false
 
-const banner = `/**
-* @name ${pkg.name}
-* @license ${pkg.license}
-* @version ${pkg.version}
-* @description: ${pkg.description}
-* @copyright (c) 2018
-* @author ${pkg.author}
-*/`
+// const banner = `/**
+// * @name ${pkg.name}
+// * @license ${pkg.license}
+// * @version ${pkg.version}
+// * @description: ${pkg.description}
+// * @copyright (c) 2018
+// * @author ${pkg.author}
+// */`
 
 const postcssCfg = [
   postcssImport(),
@@ -69,7 +69,8 @@ const baseCfg = {
     babel({
       babelrc: false,
       ...babelCfg,
-      include: ['packages'],
+      runtimeHelpers: true,
+      // include: ['packages'],
       exclude: ['node_modules'],
       extensions: ['.js', '.vue']
     }),
@@ -89,7 +90,7 @@ const baseCfg = {
 }
 
 const outputCfg = {
-  banner,
+  // banner,
   globals: {
     vue: 'Vue'
   }

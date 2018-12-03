@@ -1201,6 +1201,13 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
+"@mu-ui/mu-infinite-loading@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@mu-ui/mu-infinite-loading/-/mu-infinite-loading-0.1.0.tgz#0ccc4cf8a36b17945e2e34d74b8cb82e0f69af90"
+  integrity sha512-5CvW/cpWQI+fa4M95tkw8LSmZ2EYz4F/XmGkdf7ZQFg+MHYM3RS82tyCQJlYaM3f+ODDNjzDisXy5WhUOWUndQ==
+  dependencies:
+    lodash "^4.17.11"
+
 "@nodelib/fs.stat@^1.0.1":
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/@nodelib/fs.stat/-/fs.stat-1.1.2.tgz#54c5a964462be3d4d78af631363c18d6fa91ac26"

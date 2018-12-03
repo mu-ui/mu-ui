@@ -4,16 +4,12 @@ module.exports = {
       '@babel/preset-env',
       {
         modules: false,
-        useBuiltIns: 'usage'
+        targets: {
+          android: '4.4',
+          ios: '9'
+        }
       }
     ]
   ],
-  plugins: [
-    [
-      '@babel/plugin-transform-runtime',
-      {
-        corejs: 2
-      }
-    ]
-  ]
+  plugins: ['@babel/plugin-transform-runtime']
 }
