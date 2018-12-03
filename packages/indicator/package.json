@@ -8,10 +8,10 @@
     "vue",
     "plugin"
   ],
-  "main": "lib/index.common.js",
-  "module": "lib/index.esm.js",
+  "main": "dist/index.common.js",
+  "module": "dist/index.esm.js",
   "scripts": {
-    "build": "rimraf lib && rollup --config ../../build/rollup.component.js"
+    "build": "rimraf dist && rollup --config ../../build/rollup.component.js"
   },
   "publishConfig": {
     "access": "public"

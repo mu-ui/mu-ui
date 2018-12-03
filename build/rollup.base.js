@@ -47,7 +47,7 @@ const baseCfg = {
     commonjs(),
     exactCSS &&
       css({
-        output: `${cwd}/lib/mu-ui.css`
+        output: `${cwd}/dist/mu-ui.css`
       }),
     vue({
       css: !exactCSS,

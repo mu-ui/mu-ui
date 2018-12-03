@@ -6,7 +6,7 @@ import { outputCfg, baseCfg } from './rollup.base'
 export default [
   {
     output: {
-      file: `lib/index.common.js`,
+      file: `dist/index.common.js`,
       format: 'cjs',
       ...outputCfg
     },
@@ -14,7 +14,7 @@ export default [
   },
   {
     output: {
-      file: `lib/index.esm.js`,
+      file: `dist/index.esm.js`,
       format: 'es',
       ...outputCfg
     },
