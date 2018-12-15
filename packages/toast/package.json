@@ -1,7 +1,7 @@
 {
   "name": "@mu-ui/mu-toast",
   "private": false,
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "toast vue plugin for vue 2.x",
   "keywords": [
     "toast",

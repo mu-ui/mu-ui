@@ -1,7 +1,7 @@
 {
   "name": "@mu-ui/mu-dialog",
   "private": false,
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "dialog vue component & plugin for vue 2.x",
   "keywords": [
     "dialog",

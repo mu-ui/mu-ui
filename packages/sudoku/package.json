@@ -1,6 +1,6 @@
 {
   "name": "@mu-ui/mu-sudoku",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "private": false,
   "description": "sudoku vue component for vue 2.x",
   "keywords": [
@@ -19,6 +19,6 @@
   "author": "JR93 <gjr_china@163.com>",
   "license": "MIT",
   "dependencies": {
-    "@mu-ui/mu-flex": "^0.1.2"
+    "@mu-ui/mu-flex": "^0.1.3"
   }
 }
