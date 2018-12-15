@@ -92,11 +92,11 @@ export default {
             this.$emit('input', false)
             this.toggleModal(false)
           })
-          popupModal.addEventListener(
-            'transitionend',
-            () => !this.show && this.hideModal()
-          )
         }
+        popupModal.addEventListener(
+          'transitionend',
+          () => !this.show && this.hideModal()
+        )
         // 挂载节点
         this.modalEl = popupModal
       }
@@ -114,6 +114,9 @@ export default {
         setTimeout(() => (this.modalEl.style.opacity = '1'), 10)
       } else {
         this.modalEl.style.opacity = '0'
+        if (this.duration === 0) {
+          this.hideModal()
+        }
       }
     },
     hideModal() {
