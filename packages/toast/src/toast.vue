@@ -73,8 +73,9 @@ export default {
       }, this.duration)
     },
     afterLeave() {
-      if (this.$el.parentNode) {
-        this.$el.parentNode.removeChild(this.$el)
+      const parent = this.$el.parentNode
+      if (parent) {
+        parent.removeChild(this.$el)
       }
       this.$destroy()
     }

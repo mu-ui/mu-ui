@@ -8,8 +8,8 @@
 </template>
 
 <script>
-// import InfiniteLoading from '../../../packages/infinite-loading/index'
-import InfiniteLoading from '@mu-ui/mu-infinite-loading'
+import InfiniteLoading from '../../../packages/infinite-loading'
+// import InfiniteLoading from '@mu-ui/mu-infinite-loading'
 
 export default {
   components: {

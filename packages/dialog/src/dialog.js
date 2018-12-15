@@ -22,8 +22,9 @@ const dialog = (options = {}) => {
   instance.$watch('show', val => {
     if (val === false) {
       instance.$destroy()
-      if (instance.$el.parentNode) {
-        instance.$el.parentNode.removeChild(instance.$el)
+      const parent = instance.$el.parentNode
+      if (parent) {
+        parent.removeChild(instance.$el)
       }
       instance = null
     }
