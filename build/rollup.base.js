@@ -11,7 +11,7 @@ import babel from 'rollup-plugin-babel'
 import { terser } from 'rollup-plugin-terser'
 
 const cwd = process.cwd()
-const babelCfg = require('../config/babelrc')
+const babelConfig = require('../config/babelrc')
 const pkg = require(`${cwd}/package.json`)
 
 const exactCSS = process.env.EXACT_CSS || false
@@ -28,7 +28,7 @@ const exactCSS = process.env.EXACT_CSS || false
 const postcssCfg = [
   postcssImport(),
   preset({
-    browsers: 'last 2 versions'
+    browsers: ['iOS >= 9', 'Android >= 4.4']
   }),
   // pxtorem({
   //   rootValue: 75,
@@ -68,10 +68,9 @@ const baseCfg = {
     }),
     babel({
       babelrc: false,
-      ...babelCfg,
+      ...babelConfig,
       runtimeHelpers: true,
-      // include: ['packages'],
-      exclude: ['node_modules'],
+      exclude: 'node_modules/**',
       extensions: ['.js', '.vue']
     }),
     terser({
