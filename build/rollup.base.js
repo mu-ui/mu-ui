@@ -16,14 +16,14 @@ const pkg = require(`${cwd}/package.json`)
 
 const exactCSS = process.env.EXACT_CSS || false
 
-// const banner = `/**
-// * @name ${pkg.name}
-// * @license ${pkg.license}
-// * @version ${pkg.version}
-// * @description: ${pkg.description}
-// * @copyright (c) 2018
-// * @author ${pkg.author}
-// */`
+const banner = `/**
+* @name ${pkg.name}
+* @license ${pkg.license}
+* @version ${pkg.version}
+* @description: ${pkg.description}
+* @copyright (c) 2018
+* @author ${pkg.author}
+*/`
 
 const postcssCfg = [
   postcssImport(),
@@ -74,22 +74,22 @@ const baseCfg = {
       extensions: ['.js', '.vue']
     }),
     terser({
-      // output: {
-      //   comments: function(node, comment) {
-      //     var text = comment.value
-      //     var type = comment.type
-      //     if (type === 'comment2') {
-      //       // multiline comment
-      //       return /@preserve|@license|@cc_on/i.test(text)
-      //     }
-      //   }
-      // }
+      output: {
+        comments: function(node, comment) {
+          var text = comment.value
+          var type = comment.type
+          if (type === 'comment2') {
+            // multiline comment
+            return /@preserve|@license|@cc_on/i.test(text)
+          }
+        }
+      }
     })
   ]
 }
 
 const outputCfg = {
-  // banner,
+  banner,
   globals: {
     vue: 'Vue'
   }
