@@ -5,7 +5,7 @@
     <div class="popup-btn popup-center" @click="showPopup('bottom')">bottom</div>
     <div class="popup-btn popup-center" @click="showPopup('left')">left</div>
     <div class="popup-btn popup-center" @click="showPopup('right')">right</div>
-    <popup v-model="show" class="popup-wrap" :position="pos" :duration="0.3">
+    <popup :show.sync="show" class="popup-wrap" :position="pos" :duration="0.3">
       <p>I am {{ pos }} popup</p>
     </popup>
   </div>

@@ -11,7 +11,7 @@ import babel from 'rollup-plugin-babel'
 import { terser } from 'rollup-plugin-terser'
 
 const cwd = process.cwd()
-const babelConfig = require('../config/babelrc')
+const babelConfig = require('../config/babel.config')
 const pkg = require(`${cwd}/package.json`)
 
 const exactCSS = process.env.EXACT_CSS || false
@@ -21,7 +21,7 @@ const banner = `/**
 * @license ${pkg.license}
 * @version ${pkg.version}
 * @description: ${pkg.description}
-* @copyright (c) 2018
+* @copyright (c) 2018-2019
 * @author ${pkg.author}
 */`
 

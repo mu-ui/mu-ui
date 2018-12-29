@@ -1,14 +1,17 @@
 {
   "packages": [
-    "packages/*"
+    "packages/*",
+    "plugins/*"
   ],
   "command": {
     "publish": {
-      "message": "chore(release): publish",
-      "ignoreChanges": [
-        "*.md"
-      ]
+      "allowBranch": "master",
+      "message": "chore(release): publish"
     }
   },
+  "ignoreChanges": [
+    "**/__tests__/**",
+    "**/*.md"
+  ],
   "version": "independent"
 }

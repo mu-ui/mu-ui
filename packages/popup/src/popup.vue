@@ -1,7 +1,7 @@
 <template>
-  <transition :name="type">
+  <transition :name="transitionType">
     <div
-      v-show="show"
+      v-show="showPop"
       class="mu-popup"
       :class="`mu-popup-${position}`"
       :style="{'transition-duration': `${duration}s`}">
@@ -12,9 +12,8 @@
 
 <script>
 export default {
-  name: 'MuPopup',
   props: {
-    value: {
+    show: {
       type: Boolean,
       default: false
     },
@@ -57,11 +56,11 @@ export default {
   },
   data() {
     return {
-      show: false
+      showPop: false
     }
   },
   computed: {
-    type() {
+    transitionType() {
       if (!~['fade', 'slide'].indexOf(this.transition)) {
         return this.transition
       }
@@ -69,40 +68,40 @@ export default {
     }
   },
   watch: {
-    value(val) {
-      this.show = val
+    show(val) {
+      this.showPop = val
       this.modal && this.toggleModal(val)
     }
   },
   created() {
+    // 只有初始化实例时创建
     this.createModal()
   },
   methods: {
     createModal() {
       if (this.modal) {
         const modalAmount = document.querySelectorAll('.mu-popup-modal').length
-        let popupModal = document.createElement('div')
-        popupModal.className = `mu-popup-modal mu-popup-modal-${modalAmount}`
-        popupModal.style.backgroundColor = `rgba(0, 0, 0, ${this.opacity})`
-        popupModal.style.transitionDuration = `${this.duration}s`
-        document.body.appendChild(popupModal)
+        let popupModalEl = document.createElement('div')
+        popupModalEl.className = `mu-popup-modal mu-popup-modal-${modalAmount}`
+        popupModalEl.style.backgroundColor = `rgba(0, 0, 0, ${this.opacity})`
+        popupModalEl.style.transitionDuration = `${this.duration}s`
+        document.body.appendChild(popupModalEl)
 
         if (this.clickable) {
-          popupModal.addEventListener('click', () => {
-            this.$emit('input', false)
-            this.toggleModal(false)
+          popupModalEl.addEventListener('click', () => {
+            this.$emit('update:show', false)
           })
         }
-        popupModal.addEventListener(
+        popupModalEl.addEventListener(
           'transitionend',
-          () => !this.show && this.hideModal()
+          () => !this.showPop && this.hideModal()
         )
         // 挂载节点
-        this.modalEl = popupModal
+        this.modalEl = popupModalEl
       }
-      if (this.value) {
-        this.$nextTick(() => {
-          this.show = true
+      if (this.show) {
+        Vue.nextTick(() => {
+          this.showPop = true
           this.modal && this.toggleModal(true)
         })
       }

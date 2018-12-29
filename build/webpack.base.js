@@ -2,7 +2,7 @@ const path = require('path')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 const cwd = process.cwd()
-const babelConfig = require('../config/babelrc')
+const babelConfig = require('../config/babel.config')
 
 module.exports = mode => ({
   mode,

@@ -1,23 +1,24 @@
 {
   "name": "@mu-ui/mu-indicator",
-  "version": "0.2.8",
   "private": false,
+  "version": "0.2.8",
   "description": "indicator vue plugin for vue 2.x",
+  "author": "JR93 <gjr_china@163.com>",
+  "license": "MIT",
+  "main": "dist/index.common.js",
+  "module": "dist/index.esm.js",
+  "typings": "types/index.d.ts",
+  "scripts": {
+    "build": "rimraf dist && rollup --config ../../build/rollup.component.js"
+  },
   "keywords": [
     "indicator",
     "vue",
     "plugin"
   ],
-  "main": "dist/index.common.js",
-  "module": "dist/index.esm.js",
-  "scripts": {
-    "build": "rimraf dist && rollup --config ../../build/rollup.component.js"
-  },
   "publishConfig": {
     "access": "public"
   },
-  "author": "JR93 <gjr_china@163.com>",
-  "license": "MIT",
   "dependencies": {
     "@mu-ui/mu-loading": "^0.1.4"
   }

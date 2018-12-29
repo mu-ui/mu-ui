@@ -1,21 +1,22 @@
 {
   "name": "@mu-ui/mu-rotary",
-  "version": "0.1.3",
   "private": false,
+  "version": "0.1.3",
   "description": "rotary vue component for vue 2.x",
+  "author": "JR93 <gjr_china@163.com>",
+  "license": "MIT",
+  "main": "dist/index.common.js",
+  "module": "dist/index.esm.js",
+  "typings": "types/index.d.ts",
+  "scripts": {
+    "build": "rimraf dist && rollup --config ../../build/rollup.component.js"
+  },
   "keywords": [
     "rotary",
     "vue",
     "components"
   ],
-  "main": "dist/index.common.js",
-  "module": "dist/index.esm.js",
-  "scripts": {
-    "build": "rimraf dist && rollup --config ../../build/rollup.component.js"
-  },
   "publishConfig": {
     "access": "public"
-  },
-  "author": "JR93 <gjr_china@163.com>",
-  "license": "MIT"
+  }
 }

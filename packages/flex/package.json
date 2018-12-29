@@ -1,21 +1,22 @@
 {
   "name": "@mu-ui/mu-flex",
-  "version": "0.1.4",
   "private": false,
+  "version": "0.1.4",
   "description": "flex vue component for vue 2.x",
+  "author": "JR93 <gjr_china@163.com>",
+  "license": "MIT",
+  "main": "dist/index.common.js",
+  "module": "dist/index.esm.js",
+  "typings": "types/index.d.ts",
+  "scripts": {
+    "build": "rimraf dist && rollup --config ../../build/rollup.component.js"
+  },
   "keywords": [
     "flex",
     "vue",
     "components"
   ],
-  "main": "dist/index.common.js",
-  "module": "dist/index.esm.js",
-  "scripts": {
-    "build": "rimraf dist && rollup --config ../../build/rollup.component.js"
-  },
   "publishConfig": {
     "access": "public"
-  },
-  "author": "JR93 <gjr_china@163.com>",
-  "license": "MIT"
+  }
 }
