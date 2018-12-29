@@ -1,6 +1,6 @@
 {
   "name": "@mu-ui/eslint-config-mui",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "mu-ui 代码风格规范",
   "author": "JR93 <gjr_china@163.com>",
   "private": false,

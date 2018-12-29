@@ -1,7 +1,7 @@
 {
   "name": "@mu-ui/mu-indicator",
   "private": false,
-  "version": "0.2.8",
+  "version": "0.2.9",
   "description": "indicator vue plugin for vue 2.x",
   "author": "JR93 <gjr_china@163.com>",
   "license": "MIT",
@@ -20,6 +20,6 @@
     "access": "public"
   },
   "dependencies": {
-    "@mu-ui/mu-loading": "^0.1.4"
+    "@mu-ui/mu-loading": "^0.1.5"
   }
 }
