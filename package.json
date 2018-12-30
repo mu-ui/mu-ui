@@ -6,6 +6,7 @@
   "scripts": {
     "commit": "git-cz",
     "dev": "webpack-dev-server --config build/webpack.dev.js",
+    "demo": "webpack-dev-server --config build/webpack.demo.js",
     "build": "lerna run build",
     "lint": "eslint --fix --ext .js,.vue .",
     "test": "jest -c config/jest.config.js",
@@ -28,6 +29,7 @@
     "dev/",
     "test/",
     "**/dist/**",
+    "**/types/**",
     "*.json",
     "*.html"
   ],

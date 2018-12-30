@@ -14,7 +14,7 @@ module.exports = mode => ({
         test: /\.(js|vue)$/,
         loader: 'eslint-loader',
         options: {
-          configFile: path.resolve(__dirname, '../.eslintrc'),
+          // configFile: path.resolve(__dirname, '../.eslintrc'),
           failOnError: mode === 'production',
           formatter: require('eslint-friendly-formatter')
         },
@@ -79,10 +79,6 @@ module.exports = mode => ({
   },
   plugins: [new VueLoaderPlugin()],
   resolve: {
-    alias: {
-      '@': path.resolve(__dirname, '../src'),
-      assets: path.resolve(__dirname, '../src/assets')
-    },
     extensions: ['.js', '.vue'],
     modules: ['node_modules']
   }

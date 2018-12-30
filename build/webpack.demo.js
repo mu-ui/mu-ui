@@ -7,7 +7,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const baseConfig = require('./webpack.base.js')
 
 module.exports = merge(baseConfig('development'), {
-  entry: './src/index.js',
+  entry: './demos/index.js',
   output: {
     path: path.resolve(__dirname, '../dev'),
     filename: 'bundle.js',
@@ -17,22 +17,22 @@ module.exports = merge(baseConfig('development'), {
     new FriendlyErrorsPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
-      template: 'src/index.html'
+      template: 'demos/index.html'
     })
   ],
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, '../src'),
-      assets: path.resolve(__dirname, '../src/assets')
+      '@': path.resolve(__dirname, '../demos'),
+      assets: path.resolve(__dirname, '../demos/assets')
     }
   },
   devServer: {
-    contentBase: path.resolve(__dirname, '../src'),
+    contentBase: path.resolve(__dirname, '../demos'),
     publicPath: '/',
     hot: true,
     clientLogLevel: 'none',
     quiet: true,
-    port: 9998,
+    port: 9999,
     open: true,
     disableHostCheck: true,
     proxy: {}
