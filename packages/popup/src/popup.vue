@@ -39,6 +39,10 @@ export default {
       type: Boolean,
       default: true
     },
+    touchmove: {
+      type: Boolean,
+      default: true
+    },
     opacity: {
       type: Number,
       default: 0.5,
@@ -52,6 +56,10 @@ export default {
       validator(value) {
         return value >= 0
       }
+    },
+    clickFn: {
+      type: Function,
+      default: null
     }
   },
   data() {
@@ -90,6 +98,14 @@ export default {
         if (this.clickable) {
           popupModalEl.addEventListener('click', () => {
             this.$emit('update:show', false)
+            if (this.clickFn && typeof this.clickFn === 'function') {
+              this.clickFn()
+            }
+          })
+        }
+        if (!this.touchmove) {
+          popupModalEl.addEventListener('touchmove', e => {
+            e.preventDefault()
           })
         }
         popupModalEl.addEventListener(

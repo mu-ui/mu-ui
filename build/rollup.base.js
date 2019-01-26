@@ -9,6 +9,7 @@ import cssnano from 'cssnano'
 import vue from 'rollup-plugin-vue'
 import babel from 'rollup-plugin-babel'
 import { terser } from 'rollup-plugin-terser'
+import progress from 'rollup-plugin-progress'
 
 const cwd = process.cwd()
 const babelConfig = require('../config/babel.config')
@@ -84,6 +85,9 @@ const baseCfg = {
           }
         }
       }
+    }),
+    progress({
+      clearLine: false
     })
   ]
 }

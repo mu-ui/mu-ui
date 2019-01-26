@@ -58,6 +58,20 @@ Default: true
 
 Whether or not click the modal to hide popup
 
+#### clickFn
+
+Type: Function
+Default: null
+
+Click the modal to hide popup, and execute the clickFn method if exists
+
+#### touchmove
+
+Type: Boolean
+Default: true
+
+Whether or not the modal can touchmove
+
 #### opacity
 
 Type: Number
@@ -71,3 +85,4 @@ Type: Number
 Default:0.5
 
 transition-duration
+
