@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.12](https://github.com/mu-ui/mu-ui/compare/@mu-ui/mu-toast@0.1.11...@mu-ui/mu-toast@0.1.12) (2019-03-09)
+
+**Note:** Version bump only for package @mu-ui/mu-toast
+
+
+
+
+
 ## [0.1.11](https://github.com/mu-ui/mu-ui/compare/@mu-ui/mu-toast@0.1.10...@mu-ui/mu-toast@0.1.11) (2018-12-29)
 
 **Note:** Version bump only for package @mu-ui/mu-toast
