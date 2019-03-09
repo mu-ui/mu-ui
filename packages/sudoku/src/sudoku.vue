@@ -2,17 +2,17 @@
   <div class="mu-sudoku">
     <mu-flex class="mu-sudoku-col" direction="col">
       <mu-flex class="mu-sudoku-row">
-        <slot v-for="n in [0,1,2]" :name="`mu-sudoku-item-${n}`" :active="cur === n"></slot>
+        <slot v-for="n in [0,1,2]" :name="`item-${n}`" :active="cur === n"></slot>
       </mu-flex>
       <mu-flex class="mu-sudoku-row">
-        <slot name="mu-sudoku-item-7" :active="cur === 7"></slot>
+        <slot name="item-7" :active="cur === 7"></slot>
         <div class="mu-sudoku-click-handler" @click="sudokuHandler">
-          <slot name="mu-sudoku-click-btn"></slot>
+          <slot name="handler"></slot>
         </div>
-        <slot name="mu-sudoku-item-3" :active="cur === 3"></slot>
+        <slot name="item-3" :active="cur === 3"></slot>
       </mu-flex>
       <mu-flex class="mu-sudoku-row">
-        <slot v-for="n in [6,5,4]" :name="`mu-sudoku-item-${n}`" :active="cur === n"></slot>
+        <slot v-for="n in [6,5,4]" :name="`item-${n}`" :active="cur === n"></slot>
       </mu-flex>
     </mu-flex>
   </div>

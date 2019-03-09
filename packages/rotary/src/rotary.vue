@@ -1,10 +1,10 @@
 <template>
   <div class="mu-rotary">
     <div ref="mu-rotary-canvas" class="mu-rotary-canvas-wrapper" :style="{'transform': `rotate(${rotate}deg)`, 'transition-duration': `${duration}s`}">
-      <slot name="mu-rotary-canvas"></slot>
+      <slot name="canvas"></slot>
     </div>
     <div class="mu-rotary-click-handler" @click="rotaryHandler">
-      <slot name="mu-rotary-handler"></slot>
+      <slot name="handler"></slot>
     </div>
   </div>
 </template>
