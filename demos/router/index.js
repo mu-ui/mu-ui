@@ -11,7 +11,12 @@ import Dialog from '@/views/components/dialog.vue'
 import InfiniteLoading from '@/views/components/infinite-loading.vue'
 import Sudoku from '@/views/components/sudoku.vue'
 import Rotary from '@/views/components/rotary.vue'
+import Clipboard from '@/views/components/clipboard.vue'
 import Scroll from '@/views/components/scroll.vue'
+import NoticeBar from '@/views/components/notice-bar.vue'
+import Collapse from '@/views/components/collapse.vue'
+import Swipe from '@/views/components/swipe.vue'
+import Touch from '@/views/components/touch.vue'
 
 Vue.use(Router)
 
@@ -61,8 +66,28 @@ const routes = [
     component: Rotary
   },
   {
+    path: '/clipboard',
+    component: Clipboard
+  },
+  {
     path: '/scroll',
     component: Scroll
+  },
+  {
+    path: '/notice-bar',
+    component: NoticeBar
+  },
+  {
+    path: '/collapse',
+    component: Collapse
+  },
+  {
+    path: '/swipe',
+    component: Swipe
+  },
+  {
+    path: '/touch',
+    component: Touch
   }
 ]
 

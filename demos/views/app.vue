@@ -12,7 +12,12 @@
       <router-link to="/dialog" class="btn">dialog</router-link>
       <router-link to="/sudoku" class="btn">sudoku</router-link>
       <router-link to="/rotary" class="btn">rotary</router-link>
+      <router-link to="/clipboard" class="btn">clipboard</router-link>
       <router-link to="/scroll" class="btn">scroll</router-link>
+      <router-link to="/notice-bar" class="btn">notice-bar</router-link>
+      <router-link to="/collapse" class="btn">collapse</router-link>
+      <router-link to="/swipe" class="btn">swipe</router-link>
+      <router-link to="/touch" class="btn">touch</router-link>
     </nav>
     <router-view class="main"></router-view>
   </div>

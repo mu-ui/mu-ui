@@ -4,7 +4,7 @@
       <sudoku @handle="draw" @finish="showResult">
         <template
           v-for="(item, index) in gifts"
-          :slot="`mu-sudoku-item-${index}`"
+          :slot="`item-${index}`"
           slot-scope="props">
           <div
             :key="item.id"
@@ -13,7 +13,7 @@
             {{ item.name }}
           </div>
         </template>
-        <div slot="mu-sudoku-click-btn" class="sudoku-item sudoku-click-btn">
+        <div slot="handler" class="sudoku-item sudoku-click-btn">
           <p class="sudoku-text">抽奖</p>
         </div>
       </sudoku>

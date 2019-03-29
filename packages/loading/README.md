@@ -1,55 +1,39 @@
-## mu-loading
+## mu-loading 加载中
 
-loading vue component for vue 2.x
-
-### Installation
+### 安装方式
 
 ```bash
 yarn add @mu-ui/mu-loading
 ```
 
-### Usage
+### 使用指南
 
 ```js
 import Loading from '@mu-ui/mu-loading'
 
-Vue.component('loading', Loading)
+Vue.component('Loading', Loading)
 
-<loading type="dual-ring" :width="6" :size="40">
+<Loading :width="6" :size="40">
   custom width: 6
-</loading>
-<loading type="dual-ring" :width="6" :size="40">
+</Loading>
+
+<Loading type="dual-ring" :width="6" :size="40">
   <div slot="icon" class="loading-dot"></div>
   custom icon
-</loading>
+</Loading>
 ```
 
-### Options
+### mu-loading Props
 
-#### type
+参数|说明|类型|默认值
+---|---|---|---
+type|loading 样式. 默认可选 ring 或者 dual-ring，如果有其他类型，可以自己通过slot自定义|String|'ring'
+color|loading 图标颜色|String|'#272639'
+size|图标的尺寸|Number|30
+width|图标的边框宽度|Number|3
 
-Type: String
-Default: ring
+### mu-loading Slots
 
-loading icon. It has two types(ring|dual-ring) built-in.
-
-#### color
-
-Type: String
-Default: #272639
-
-loading icon color
-
-#### size
-
-Type: Number
-Default: 30
-
-loading icon width & height
-
-#### width
-
-Type: Number
-Default: 3
-
-loading icon border width
+名称|说明
+---|---
+icon|loading icon

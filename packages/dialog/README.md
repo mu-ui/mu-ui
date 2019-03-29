@@ -1,17 +1,15 @@
-## mu-dialog
+## mu-dialog 对话框
 
-dialog component & plugin for vue 2.x
-
-### Installation
+### 安装方式
 
 ```bash
 yarn add @mu-ui/mu-dialog
 ```
 
-### Usage
+### 使用指南
 
 ```js
-// plugin
+// 插件
 import Dialog from '@mu-ui/mu-dialog'
 
 Vue.use(Dialog)
@@ -21,7 +19,6 @@ this.$dialog({
   message: 'Message...',
   opacity: 0.5,
   single: true,
-  highlight: '#fd0',
   btns: ['No', 'Yes'],
   confirm() {
     console.log('click confirm btn')
@@ -31,70 +28,30 @@ this.$dialog({
   }
 })
 
-or
-
-// component
+// 组件
 import Dialog from '@mu-ui/mu-dialog'
 
-Vue.component('mu-dialog', Dialog.Dialog)
+Vue.component('dialog', Dialog.Dialog)
 
-// use v-model to control whether or not visible
-<mu-dialog v-model="show" @confirm="confirm" @cancel="cancel">
+// 使用 v-model 控制显示隐藏
+<dialog v-model="show" @confirm="confirm" @cancel="cancel">
   <div class="dialog-main">
     <p>1</p>
     <p>2</p>
     <p>3</p>
   </div>
-</mu-dialog>
+</dialog>
 ```
 
-### Options
+### mu-dialog Options & Props
 
-#### title
-
-Type: String
-Default: 'Tip'
-
-dialog title
-
-#### message
-
-Type: String
-Default: 'Are you sure?'
-
-dialog message
-
-#### btns
-
-Type: Array
-Default: []
-
-custom button text. if you pass only one element, then a single button which emit confirm event will be displayed. And the priority is higher than the single option
-
-#### single
-
-Type: Boolean
-Default: false
-
-if true, only single button which emit confirm event will be displayed.
-
-#### opacity
-
-Type: Number
-Default: 0.1
-
-opacity of the mask's backgroundColor
-
-#### highlight
-
-Type: String
-Default: #272639
-
-text color of the confirm btn
-
-#### pre
-
-Type: Boolean
-Default: false
-
-if true, the confirm btn will be placed in the first place
+参数|说明|类型|默认值
+---|---|---|---
+title|标题|String|'Tip'
+message|内容|String|'Are you sure?'
+btns|按钮文案自定义，如果只有一个元素，则对话框只有单个按钮|Array|[]
+single|是否只展示单个按钮，btns优先级更高，如果为 true 并且 btns 不设置，<br>该设置才生效|Boolean|false
+opacity|蒙层透明度|Number|0.1
+pre|按钮交换位置，主要就是高亮按钮位置的置换|Boolean|false
+confirm|确认按钮事件|Function|null
+cancel|取消按钮事件|Function|null

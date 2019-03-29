@@ -1,10 +1,10 @@
 <template>
   <div class="rotary">
     <rotary class="rotary-main" @handle="draw" @finish="showResult">
-      <div slot="mu-rotary-canvas" class="rotary-canvas">
+      <div slot="canvas" class="rotary-canvas">
         <div class="rotary-lamp"></div>
       </div>
-      <div slot="mu-rotary-handler" class="rotary-handler"></div>
+      <div slot="handler" class="rotary-handler"></div>
     </rotary>
   </div>
 </template>

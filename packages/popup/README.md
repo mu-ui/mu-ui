@@ -1,22 +1,20 @@
-## mu-popup
+## mu-popup 弹出层
 
-popup vue component for vue 2.x
-
-### Installation
+### 安装方式
 
 ```bash
 yarn add @mu-ui/mu-popup
 ```
 
-### Usage
+### 使用指南
 
 ```js
 import Popup from '@mu-ui/mu-popup'
 
-Vue.component('popup', Popup)
+Vue.component('Popup', Popup)
 
-<popup
-  v-model="show" // use v-model to control whether or not visible
+<Popup
+  :show.sync="show" // 这里使用.sync修饰符，以达到组件内部可控制显示隐藏
   transition="slide"
   position="top"
   :modal="true"
@@ -25,64 +23,18 @@ Vue.component('popup', Popup)
   :duration="0.5"
 >
   <p>I am a popup</p>
-</popup>
+</Popup>
 ```
 
-### Options
+### mu-popup Props
 
-#### transition
-
-Type: String
-Default: fade
-
-custom transition effect. It has two transitions(fade|slide) built-in.
-
-#### position
-
-Type: String
-Default: center // ['top', 'bottom', 'left', 'right', 'center']
-
-position of popup
-
-#### modal
-
-Type: Boolean
-Default: true
-
-Whether or not need a modal
-
-#### clickable
-
-Type: Boolean
-Default: true
-
-Whether or not click the modal to hide popup
-
-#### clickFn
-
-Type: Function
-Default: null
-
-Click the modal to hide popup, and execute the clickFn method if exists
-
-#### touchmove
-
-Type: Boolean
-Default: true
-
-Whether or not the modal can touchmove
-
-#### opacity
-
-Type: Number
-Default:0.5
-
-opacity of the modal
-
-#### duration
-
-Type: Number
-Default:0.5
-
-transition-duration
-
+参数|说明|类型|默认值
+---|---|---|---
+transition|选择过渡效果，内置 fade | slide，可自定义自己想要的过渡效果|String|fade
+position|具体弹出框的位置['top', 'bottom', 'left', 'right', 'center']|String|center
+modal|是否需要蒙层|Boolean|true
+clickable|蒙层是否可以点击，默认可以点击，并且将会关闭弹出层|Boolean|true
+opacity|蒙层的透明度|Number|0.5
+duration|等价于 transition-duration|Number|0.5
+touchmove|蒙层是否可以滑动|Boolean|true
+clickFn|点击蒙层后，可自定义方法。该方法在弹出层关闭的同时触发。|Function|null

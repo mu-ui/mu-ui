@@ -39,7 +39,7 @@ export default {
 <style lang="scss">
 .infinite-loading {
   &-container {
-    height: 400px;
+    height: 400px !important;
   }
 }
 </style>

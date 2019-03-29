@@ -1,74 +1,40 @@
-## mu-toast
+## mu-toast 轻提示
 
-toast plugin for vue 2.x
-
-### Installation
+### 安装方式
 
 ```bash
 yarn add @mu-ui/mu-toast
 ```
 
-### Usage
+### 使用指南
 
 ```js
 import Toast from '@mu-ui/mu-toast'
 
 Vue.use(Toast)
 
-// two ways to use
-this.$toast('hello')
-Vue.toast('world')
+// 两种调用方式
+this.$toast('toast msg')
+Vue.toast('toast msg')
 
-// more options
+// 自定义选项
 this.$toast({
-  message: 'toast message',
-  position: 'bottom', // top|middle|bottom(default)
-  duration: 3000, // 3000(default)
-  color: '#fff', // #fff(default)
-  bgColor: 'rgba(0, 0, 0, 0.7)', // rgba(0, 0, 0, 0.7)(default)
-  customClass: 'custom-class' // [optional]
+  message: 'toast msg',
+  position: 'bottom',
+  duration: 3000,
+  color: '#fff',
+  bgColor: 'rgba(0, 0, 0, 0.7)',
+  customClass: 'custom-class'
 })
 ```
 
-### Options
+### mu-toast Options
 
-#### message
-
-Type: String|Required
-
-toast message
-
-#### position
-
-Type: String
-Default: bottom
-
-the position of toast instance, one of top|middle|bottom
-
-#### duration
-
-Type: Number
-Default: 3000
-
-stay time
-
-#### color
-
-Type: String
-Default: #fff
-
-text color
-
-#### bgColor
-
-Type: String
-Default: rgba(0, 0, 0, 0.7)
-
-backgroundColor
-
-#### customClass
-
-Type: String
-Default: ''
-
-custom className to overwrite default style. Please pay attention to the CSS class scope
+参数|说明|类型|默认值
+---|---|---|---
+message|消息内容|String|''
+position|消息位置, 可选值: top \| middle \| bottom|String|bottom
+duration|停留时长|Number|3000(ms)
+color|字体颜色|String|#fff
+bgColor|背景色|String|rgba(0, 0, 0, 0.7)
+customClass|自定义样式类(全局声明)|String|''

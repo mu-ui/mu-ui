@@ -1,0 +1,27 @@
+{
+  "name": "@mu-ui/mu-clipboard",
+  "private": false,
+  "version": "0.0.0",
+  "description": "clipboard vue plugin for vue 2.x",
+  "author": "JR93 <gjr_china@163.com>",
+  "license": "MIT",
+  "main": "dist/index.common.js",
+  "module": "dist/index.esm.js",
+  "typings": "types/index.d.ts",
+  "scripts": {
+    "build": "rimraf dist && rollup --config ../../build/rollup.component.js"
+  },
+  "keywords": [
+    "clipboard",
+    "vue",
+    "component",
+    "plugin"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "clipboard": "^2.0.4",
+    "es6-promise": "^4.2.5"
+  }
+}

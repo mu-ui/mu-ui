@@ -1,24 +1,18 @@
-## mu-storage
+## mu-storage 本地存储
 
-a simple storage plugin for vue 2.x to use localStorage & sessionStorage.
-
-### Installation
+### 安装方式
 
 ```bash
 yarn add @mu-ui/mu-storage
 ```
 
-### Usage
+### 使用指南
 
 ```js
 import Storage from '@mu-ui/mu-storage'
 
 Vue.use(Storage)
-```
 
-### Example
-
-```js
 // localStorage
 this.$storage.set('name', 'JR')
 Vue.storage.get('name')
@@ -28,47 +22,14 @@ this.$session.set('name', 'JR')
 Vue.session.get('name')
 ```
 
-### Api
+### mu-storage API
 
-#### set(key, val)
-
-set storage with key and val
-
-#### get(key)
-
-get storage with key
-
-#### remove(key)
-
-remove storage with key
-
-#### has(key)
-
-determine storage has the key
-
-#### clearAll()
-
-clear all storages
-
-#### forEach(callback)
-
-forEach the storages and call the callback function with each storage
-
-#### filter(callback(key))
-
-create a array with all storages that pass the test implemented by the provided function. If no storages pass the test, an empty array will be returned. If don't provide a callback function, a array with all storages will be returned.
-
-**callback**
-
-Function is a predicate, to test each storage of the storages. Return true to keep the storage, false otherwise. It accepts one arguments:
-
-**key**
-
-key of the current storage
-
-```js
-const arr = this.$storage.filter(key => {
-  return key === 'name'
-})
-console.log(arr) // [{key: 'name', val: 'JR'}]
-```
+方法|说明|返回类型
+---|---|---
+set(key, val)|设置存储|-
+get(key)|获取指定存储|String
+remove(key)|移除指定存储|-
+has(key)|判断当前存储是否有指定key|Boolean
+clearAll()|清除所有存储|-
+forEach(callback)|遍历所有存储并逐一作为参数调用callback|-
+filter(callback(key))|过滤存储，不传callback获取所有存储|Array

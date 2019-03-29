@@ -1,61 +1,35 @@
-## mu-indicator
+## mu-indicator 指示器
 
-indicator plugin for vue 2.x
-
-### Installation
+### 安装方式
 
 ```bash
 yarn add @mu-ui/mu-indicator
 ```
 
-### Usage
+### 使用指南
 
 ```js
 import Indicator from '@mu-ui/mu-indicator'
 
 Vue.use(Indicator)
 
-this.$indicator.show('hello mu-ui')
+// 显示
+this.$indicator.show('hello')
 this.$indicator.show({
   type: 'dual-ring',
-  tip: 'hello mu-ui',
+  tip: 'hello',
   maskColor: 'rgba(0, 0, 0, 0.1)'
 })
+// 隐藏
 this.$indicator.hide()
 ```
 
-### Options
+### mu-dialog Options
 
-#### tip
-
-Type: String
-
-indicator tip content
-
-#### type
-
-Type: String
-Default: ring
-
-loading icon. It has two types(ring|dual-ring) built-in.
-
-#### color
-
-Type: String
-Default: #fff
-
-loading icon color & tip color
-
-#### bgColor
-
-Type: String
-Default: rgba(0, 0, 0, 0.7)
-
-indicator background color
-
-#### maskColor
-
-Type: String
-Default: transparent
-
-mask background color
+参数|说明|类型|默认值
+---|---|---|---
+tip|提示文案|String|'Loading...'
+type|loading 图标，内部使用loading组件，故只能选择 ring | dual-ring|String|ring
+color|指示器 图标和字体色|String|#fff
+bgColor|指示器背景色|String|rgba(0, 0, 0, 0.7)
+maskColor|蒙层颜色|String|transparent

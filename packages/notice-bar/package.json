@@ -1,0 +1,22 @@
+{
+  "name": "@mu-ui/mu-notice-bar",
+  "private": false,
+  "version": "0.0.0",
+  "description": "notice-bar vue component for vue 2.x",
+  "author": "JR93 <gjr_china@163.com>",
+  "license": "MIT",
+  "main": "dist/index.common.js",
+  "module": "dist/index.esm.js",
+  "typings": "types/index.d.ts",
+  "scripts": {
+    "build": "rimraf dist && rollup --config ../../build/rollup.component.js"
+  },
+  "keywords": [
+    "notice-bar",
+    "vue",
+    "components"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}

@@ -1,14 +1,12 @@
-## mu-flex
+## mu-flex 基础布局
 
-flex vue component for vue 2.x
-
-### Installation
+### 安装方式
 
 ```bash
 yarn add @mu-ui/mu-flex
 ```
 
-### Usage
+### 使用指南
 
 ```js
 import { Flex, FlexItem } from '@mu-ui/mu-flex'
