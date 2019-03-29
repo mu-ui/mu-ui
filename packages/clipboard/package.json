@@ -1,7 +1,7 @@
 {
   "name": "@mu-ui/mu-clipboard",
   "private": false,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "clipboard vue plugin for vue 2.x",
   "author": "JR93 <gjr_china@163.com>",
   "license": "MIT",

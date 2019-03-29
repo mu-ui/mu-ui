@@ -1,7 +1,7 @@
 {
   "name": "@mu-ui/mu-swipe",
   "private": false,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "swipe vue component for vue 2.x",
   "author": "JR93 <gjr_china@163.com>",
   "license": "MIT",
