@@ -27,6 +27,10 @@ export default {
       type: Boolean,
       default: true
     },
+    preventMove: {
+      type: Boolean,
+      default: true
+    },
     showIndicator: {
       type: Boolean,
       default: true
@@ -39,6 +43,10 @@ export default {
       type: Number,
       default: 500
     },
+    changeIndex: {
+      type: Number,
+      default: 0
+    },
     autoplay: {
       type: Number,
       default: 3000
@@ -48,7 +56,9 @@ export default {
     return {
       width: 0,
       startX: 0,
+      startY: 0,
       offsetX: 0,
+      offsetY: 0,
       distance: 0,
       dur: 0,
       diff: 0,
@@ -68,6 +78,15 @@ export default {
     },
     isNeedLoop() {
       return this.autoplay > 0 || this.loop
+    }
+  },
+  watch: {
+    changeIndex(val) {
+      if (val !== this.cur) {
+        this.cur = val
+        this.dur = this.duration
+        this.diff = -this.wrapWidth * this.cur
+      }
     }
   },
   mounted() {
@@ -127,6 +146,7 @@ export default {
         clearTimeout(this.timer)
       }
       this.startX = event.touches[0].clientX
+      this.startY = event.touches[0].clientY
       this.lastDiff = this.diff
       this.leftBorder = this.cur <= 0 ? 0 : -this.wrapWidth * (this.cur - 1)
       this.rightBorder =
@@ -135,12 +155,13 @@ export default {
           : -this.wrapWidth * (this.cur + 1)
     },
     handleTouchMove(event) {
-      event.preventDefault()
+      this.preventMove && event.preventDefault()
       event.stopPropagation()
       if (this.lock) {
         return
       }
       this.offsetX = event.touches[0].clientX - this.startX
+      this.offsetY = event.touches[0].clientY - this.startY
       // 必须在滑动范围内
       this.distance = this.offsetX + this.lastDiff
       if (this.offsetX > 0 && this.distance >= this.leftBorder) {
@@ -148,20 +169,23 @@ export default {
       } else if (this.offsetX < 0 && this.distance <= this.rightBorder) {
         this.distance = this.rightBorder
       }
-      this.diff = this.distance
+      if (Math.abs(this.offsetX) / Math.abs(this.offsetY) > 3) {
+        this.diff = this.distance
+      }
     },
     handleTouchEnd(event) {
       if (
         this.lock ||
         this.distance === this.leftBorder ||
-        this.distance === this.rightBorder
+        this.distance === this.rightBorder ||
+        Math.abs(this.offsetX) / Math.abs(this.offsetY) <= 3
       ) {
         return
       }
       this.lock = true
       this.distance = event.changedTouches[0].clientX - this.startX
       // 分配
-      if (Math.abs(this.distance) > 20) {
+      if (Math.abs(this.distance) > 50) {
         if (this.distance > 0) {
           this.handleSwipe('prev')
         } else {
@@ -200,7 +224,7 @@ export default {
   width: 100%;
   height: 100%;
   user-select: none;
-  overflow: hidden;
+  overflow-x: hidden;
   &-list {
     display: flex;
     height: 100%;
