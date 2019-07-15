@@ -1,7 +1,7 @@
 {
   "name": "@mu-ui/mu-infinite-loading",
   "private": false,
-  "version": "0.1.4",
+  "version": "0.2.0",
   "description": "infinite-loading vue component for vue 2.x",
   "author": "JR93 <gjr_china@163.com>",
   "license": "MIT",
