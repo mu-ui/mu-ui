@@ -67,7 +67,7 @@
     "lerna": "^3.4.3",
     "lint-staged": "^8.0.4",
     "loud-rejection": "^1.6.0",
-    "node-sass": "^4.10.0",
+    "node-sass": "^7.0.0",
     "opn": "^5.4.0",
     "postcss-import": "^12.0.1",
     "postcss-loader": "^3.0.0",
